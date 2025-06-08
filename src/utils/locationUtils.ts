@@ -19,8 +19,37 @@ const toRadians = (degrees: number): number => {
   return degrees * (Math.PI / 180);
 };
 
-// Mock geocoding function - replace with actual Google Geocoding API in production
+// Enhanced geocoding function that works with already loaded Google Maps
 export const geocodeLocation = async (location: string): Promise<{ lat: number; lng: number } | null> => {
+  // Check if Google Maps is available for geocoding
+  if (window.google && window.google.maps && window.google.maps.Geocoder) {
+    try {
+      console.log('Using Google Maps Geocoding API for:', location);
+      const geocoder = new window.google.maps.Geocoder();
+      const result = await new Promise<google.maps.GeocoderResult[]>((resolve, reject) => {
+        geocoder.geocode({ address: location }, (results, status) => {
+          if (status === 'OK' && results) {
+            resolve(results);
+          } else {
+            reject(new Error(`Geocoding failed: ${status}`));
+          }
+        });
+      });
+
+      if (result.length > 0) {
+        const { lat, lng } = result[0].geometry.location;
+        return { lat: lat(), lng: lng() };
+      }
+      
+      return null;
+    } catch (error) {
+      console.error('Geocoding error, falling back to mock data:', error);
+      // Fall back to mock data if geocoding fails
+    }
+  }
+
+  // Fallback to mock geocoding data
+  console.log('Using mock geocoding for:', location);
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 500));
   

@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { toast } from 'sonner';
 import SearchPanel from './SearchPanel';
@@ -28,6 +29,7 @@ declare global {
   interface Window {
     google: typeof google;
     googleMapsCallback: () => void;
+    googleMapsLoaded: boolean;
   }
 }
 
@@ -43,10 +45,16 @@ const OfficeLocator = () => {
   const markersRef = useRef<google.maps.Marker[]>([]);
   const circleRef = useRef<google.maps.Circle | null>(null);
   const mapLoadedRef = useRef<boolean>(false);
+  const scriptLoadedRef = useRef<boolean>(false);
+
+  // Check if Google Maps is already available
+  const isGoogleMapsAvailable = useCallback(() => {
+    return window.google && window.google.maps && window.google.maps.Map;
+  }, []);
 
   // Initialize Google Map
   const initializeMap = useCallback(() => {
-    if (!mapRef.current || mapInstanceRef.current || !window.google) return;
+    if (!mapRef.current || mapInstanceRef.current || !isGoogleMapsAvailable()) return;
 
     try {
       const map = new window.google.maps.Map(mapRef.current, {
@@ -71,46 +79,84 @@ const OfficeLocator = () => {
       
       // Add all office markers when map initializes
       addOfficeMarkersToMap(offices);
+      console.log('Google Maps initialized successfully');
     } catch (error) {
       console.error('Failed to initialize map:', error);
       setMapError('Failed to load map. Please check if ad blockers are interfering.');
     }
   }, [offices]);
 
-  // Load Google Maps script with proper async loading
+  // Load Google Maps script with conflict prevention
   useEffect(() => {
-    if (window.google && window.google.maps) {
+    // First, check if Google Maps is already available
+    if (isGoogleMapsAvailable()) {
+      console.log('Google Maps already loaded, initializing map');
       initializeMap();
       return;
     }
 
-    if (mapLoadedRef.current) return;
+    // Check if we already tried to load the script
+    if (mapLoadedRef.current || scriptLoadedRef.current) return;
 
-    // Create callback function
-    window.googleMapsCallback = initializeMap;
+    // Check if there's already a Google Maps script loading
+    const existingScript = document.querySelector('script[src*="maps.googleapis.com"]');
+    if (existingScript && !window.googleMapsLoaded) {
+      console.log('Google Maps script already exists, waiting for it to load');
+      
+      // Wait for existing script to load
+      const checkInterval = setInterval(() => {
+        if (isGoogleMapsAvailable()) {
+          clearInterval(checkInterval);
+          initializeMap();
+        }
+      }, 100);
+
+      // Timeout after 10 seconds
+      setTimeout(() => {
+        clearInterval(checkInterval);
+        if (!isGoogleMapsAvailable()) {
+          setMapError('Google Maps failed to load within timeout period.');
+        }
+      }, 10000);
+      
+      return;
+    }
+
+    scriptLoadedRef.current = true;
+
+    // Create unique callback function name to avoid conflicts
+    const uniqueCallback = `googleMapsCallback_${Date.now()}`;
+    
+    window[uniqueCallback as any] = () => {
+      console.log('Google Maps callback triggered');
+      window.googleMapsLoaded = true;
+      initializeMap();
+    };
 
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBaTFTW_OSfqCt93_P7rcjlXhU1RInOkj0&libraries=geometry&loading=async&callback=googleMapsCallback`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBaTFTW_OSfqCt93_P7rcjlXhU1RInOkj0&libraries=geometry&loading=async&callback=${uniqueCallback}`;
     script.async = true;
     script.defer = true;
+    script.id = 'google-maps-office-locator';
     script.onerror = () => {
       console.error('Failed to load Google Maps script');
       setMapError('Failed to load Google Maps. This might be due to an ad blocker or network issue.');
+      scriptLoadedRef.current = false;
     };
     
     document.head.appendChild(script);
 
     return () => {
-      // Cleanup
-      const existingScript = document.querySelector(`script[src*="maps.googleapis.com"]`);
-      if (existingScript) {
-        document.head.removeChild(existingScript);
+      // Cleanup - but be careful not to remove existing scripts
+      const ourScript = document.getElementById('google-maps-office-locator');
+      if (ourScript && ourScript.parentNode) {
+        ourScript.parentNode.removeChild(ourScript);
       }
-      if (window.googleMapsCallback) {
-        delete window.googleMapsCallback;
+      if (window[uniqueCallback as any]) {
+        delete window[uniqueCallback as any];
       }
     };
-  }, [initializeMap]);
+  }, [initializeMap, isGoogleMapsAvailable]);
 
   // Clear existing markers and circle
   const clearMapElements = useCallback(() => {
@@ -125,7 +171,7 @@ const OfficeLocator = () => {
 
   // Add office markers to map (for initial load)
   const addOfficeMarkersToMap = useCallback((offices: Office[]) => {
-    if (!mapInstanceRef.current || !window.google) return;
+    if (!mapInstanceRef.current || !isGoogleMapsAvailable()) return;
 
     clearMapElements();
 
@@ -184,11 +230,11 @@ const OfficeLocator = () => {
     } catch (error) {
       console.error('Error adding markers to map:', error);
     }
-  }, [clearMapElements]);
+  }, [clearMapElements, isGoogleMapsAvailable]);
 
   // Add markers to map (for search results)
   const addMarkersToMap = useCallback((offices: Office[], center: { lat: number; lng: number }) => {
-    if (!mapInstanceRef.current || !window.google) return;
+    if (!mapInstanceRef.current || !isGoogleMapsAvailable()) return;
 
     clearMapElements();
 
@@ -276,7 +322,7 @@ const OfficeLocator = () => {
     } catch (error) {
       console.error('Error updating map markers:', error);
     }
-  }, [clearMapElements, currentRadius]);
+  }, [clearMapElements, currentRadius, isGoogleMapsAvailable]);
 
   // Handle search
   const handleSearch = async ({ location, radius }: SearchParams) => {
