@@ -1,5 +1,6 @@
+
 (function(){
-var css = ":root { --background: 0 0% 100%; --foreground: 222.2 84% 4.9%; --card: 0 0% 100%; --card-foreground: 222.2 84% 4.9%; --popover: 0 0% 100%; --popover-foreground: 222.2 84% 4.9%; --primary: 221.2 83.2% 53.3%; --primary-foreground: 210 40% 98%; --secondary: 210 40% 96%; --secondary-foreground: 222.2 84% 4.9%; --muted: 210 40% 96%; --muted-foreground: 215.4 16.3% 46.9%; --accent: 210 40% 96%; --accent-foreground: 222.2 84% 4.9%; --destructive: 0 62.8% 30.6%; --destructive-foreground: 210 40% 98%; --border: 214.3 31.8% 91.4%; --input: 214.3 31.8% 91.4%; --ring: 221.2 83.2% 53.3%; --chart-1: 12 76% 61%; --chart-2: 173 58% 39%; --chart-3: 197 37% 24%; --chart-4: 43 74% 66%; --chart-5: 27 87% 67%; --radius: 0.5rem; } *, ::before, ::after { box-sizing: border-box; border-width: 0; border-style: solid; border-color: #e5e7eb; } ::before, ::after { --tw-content: ''; } html, :host { line-height: 1.5; -webkit-text-size-adjust: 100%; -moz-tab-size: 4; tab-size: 4; font-family: ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; font-feature-settings: normal; font-variation-settings: normal; -webkit-tap-highlight-color: transparent; } body { margin: 0; line-height: inherit; } .min-h-screen { min-height: 100vh; } .bg-gradient-to-br { background-image: linear-gradient(to bottom right, var(--tw-gradient-stops)); } .from-blue-50 { --tw-gradient-from: #eff6ff var(--tw-gradient-from-position); --tw-gradient-to: rgb(239 246 255 / 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); } .to-indigo-100 { --tw-gradient-to: #e0e7ff var(--tw-gradient-to-position); } .container { width: 100%; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; } @media (min-width: 640px) { .container { max-width: 640px; } } @media (min-width: 768px) { .container { max-width: 768px; } } @media (min-width: 1024px) { .container { max-width: 1024px; } } @media (min-width: 1280px) { .container { max-width: 1280px; } } @media (min-width: 1536px) { .container { max-width: 1536px; } } .mx-auto { margin-left: auto; margin-right: auto; } .px-4 { padding-left: 1rem; padding-right: 1rem; } .py-8 { padding-top: 2rem; padding-bottom: 2rem; } .text-center { text-align: center; } .mb-8 { margin-bottom: 2rem; } .text-4xl { font-size: 2.25rem; line-height: 2.5rem; } @media (min-width: 768px) { .md\\:text-5xl { font-size: 3rem; line-height: 1; } } .font-bold { font-weight: 700; } .text-foreground { color: hsl(var(--foreground)); } .mb-4 { margin-bottom: 1rem; } .text-lg { font-size: 1.125rem; line-height: 1.75rem; } .text-muted-foreground { color: hsl(var(--muted-foreground)); } .max-w-2xl { max-width: 42rem; } .max-w-7xl { max-width: 80rem; } .grid { display: grid; } .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); } @media (min-width: 1024px) { .lg\\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } } @media (min-width: 1024px) { .lg\\:col-span-1 { grid-column: span 1 / span 1; } } @media (min-width: 1024px) { .lg\\:col-span-2 { grid-column: span 2 / span 2; } } .gap-6 { gap: 1.5rem; } .bg-card { background-color: hsl(var(--card)); } .rounded-lg { border-radius: 0.5rem; } .shadow-lg { box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); } .overflow-hidden { overflow: hidden; } .h-\\[600px\\] { height: 600px; } .w-full { width: 100%; } .h-full { height: 100%; } .flex { display: flex; } .items-center { align-items: center; } .justify-center { justify-content: center; } .bg-gray-100 { background-color: #f3f4f6; } .p-6 { padding: 1.5rem; } .text-red-600 { color: #dc2626; } .font-medium { font-weight: 500; } .mb-2 { margin-bottom: 0.5rem; } .text-sm { font-size: 0.875rem; line-height: 1.25rem; } .text-gray-600 { color: #4b5563; } .text-xs { font-size: 0.75rem; line-height: 1rem; } .text-gray-500 { color: #6b7280; } .inline-flex { display: inline-flex; } .items-center { align-items: center; } .justify-center { justify-content: center; } .gap-2 { gap: 0.5rem; } .whitespace-nowrap { white-space: nowrap; } .rounded-md { border-radius: 0.375rem; } .font-medium { font-weight: 500; } .ring-offset-background { --tw-ring-offset-color: hsl(var(--background)); } .transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; } .focus-visible\\:outline-none:focus-visible { outline: 2px solid transparent; outline-offset: 2px; } .focus-visible\\:ring-2:focus-visible { --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color); --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color); box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000); } .disabled\\:pointer-events-none:disabled { pointer-events: none; } .disabled\\:opacity-50:disabled { opacity: 0.5; } .bg-primary { background-color: hsl(var(--primary)); } .text-primary-foreground { color: hsl(var(--primary-foreground)); } .hover\\:bg-primary\\/90:hover { background-color: hsl(var(--primary) / 0.9); } .h-10 { height: 2.5rem; } .px-4 { padding-left: 1rem; padding-right: 1rem; } .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; } .border { border-width: 1px; } .border-border { border-color: hsl(var(--border)); } .bg-card { background-color: hsl(var(--card)); } .text-card-foreground { color: hsl(var(--card-foreground)); } .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); } .border-input { border-color: hsl(var(--input)); } .bg-background { background-color: hsl(var(--background)); } .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; } .text-base { font-size: 1rem; line-height: 1.5rem; } .placeholder\\:text-muted-foreground::placeholder { color: hsl(var(--muted-foreground)); } .focus-visible\\:ring-ring:focus-visible { --tw-ring-color: hsl(var(--ring)); } .select-none { user-select: none; } .text-sm { font-size: 0.875rem; line-height: 1.25rem; } .font-medium { font-weight: 500; } .leading-none { line-height: 1; } .space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem; } .space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem; } .mr-2 { margin-right: 0.5rem; } .mt-1 { margin-top: 0.25rem; } .mt-3 { margin-top: 0.75rem; } .p-2 { padding: 0.5rem; } .p-4 { padding: 1rem; } .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; } .py-1\\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; } .text-blue-600 { color: #2563eb; } .bg-blue-600 { background-color: #2563eb; } .hover\\:bg-blue-700:hover { background-color: #1d4ed8; } .text-white { color: #ffffff; } .max-h-96 { max-height: 24rem; } .overflow-y-auto { overflow-y: auto; } .border-border { border-color: hsl(var(--border)); } .hover\\:bg-accent\\/50:hover { background-color: hsl(var(--accent) / 0.5); } .flex-shrink-0 { flex-shrink: 0; } .text-primary { color: hsl(var(--primary)); } .hover\\:underline:hover { text-decoration-line: underline; } .animate-spin { animation: spin 1s linear infinite; } @keyframes spin { to { transform: rotate(360deg); } } .h-4 { height: 1rem; } .w-4 { width: 1rem; } .h-5 { height: 1.25rem; } .w-5 { width: 1.25rem; } .w-3 { width: 0.75rem; } .h-3 { height: 0.75rem; } .mr-1 { margin-right: 0.25rem; } .mt-0\\.5 { margin-top: 0.125rem; } .bg-secondary { background-color: hsl(var(--secondary)); } .text-secondary-foreground { color: hsl(var(--secondary-foreground)); } .px-2\\.5 { padding-left: 0.625rem; padding-right: 0.625rem; } .py-0\\.5 { padding-top: 0.125rem; padding-bottom: 0.125rem; } .border-input { border-color: hsl(var(--input)); } .hover\\:bg-accent:hover { background-color: hsl(var(--accent)); } .hover\\:text-accent-foreground:hover { color: hsl(var(--accent-foreground)); } .h-9 { height: 2.25rem; } .justify-between { justify-content: space-between; } .items-start { align-items: flex-start; }";
+var css = ":root { --background: 0 0% 100%; --foreground: 222.2 84% 4.9%; --card: 0 0% 100%; --card-foreground: 222.2 84% 4.9%; --popover: 0 0% 100%; --popover-foreground: 222.2 84% 4.9%; --primary: 221.2 83.2% 53.3%; --primary-foreground: 210 40% 98%; --secondary: 210 40% 96%; --secondary-foreground: 222.2 84% 4.9%; --muted: 210 40% 96%; --muted-foreground: 215.4 16.3% 46.9%; --accent: 210 40% 96%; --accent-foreground: 222.2 84% 4.9%; --destructive: 0 62.8% 30.6%; --destructive-foreground: 210 40% 98%; --border: 214.3 31.8% 91.4%; --input: 214.3 31.8% 91.4%; --ring: 221.2 83.2% 53.3%; --chart-1: 12 76% 61%; --chart-2: 173 58% 39%; --chart-3: 197 37% 24%; --chart-4: 43 74% 66%; --chart-5: 27 87% 67%; --radius: 0.5rem; } *, ::before, ::after { box-sizing: border-box; border-width: 0; border-style: solid; border-color: #e5e7eb; } ::before, ::after { --tw-content: ''; } html, :host { line-height: 1.5; -webkit-text-size-adjust: 100%; -moz-tab-size: 4; tab-size: 4; font-family: ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; font-feature-settings: normal; font-variation-settings: normal; -webkit-tap-highlight-color: transparent; } body { margin: 0; line-height: inherit; } .container { width: 100%; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; } @media (min-width: 640px) { .container { max-width: 640px; } } @media (min-width: 768px) { .container { max-width: 768px; } } @media (min-width: 1024px) { .container { max-width: 1024px; } } @media (min-width: 1280px) { .container { max-width: 1280px; } } @media (min-width: 1536px) { .container { max-width: 1536px; } } .flex { display: flex; } .grid { display: grid; } .hidden { display: none; } .absolute { position: absolute; } .relative { position: relative; } .inset-0 { top: 0; right: 0; bottom: 0; left: 0; } .top-4 { top: 1rem; } .left-4 { left: 1rem; } .right-4 { right: 1rem; } .z-10 { z-index: 10; } .z-50 { z-index: 50; } .h-full { height: 100%; } .h-10 { height: 2.5rem; } .h-96 { height: 24rem; } .h-\\[500px\\] { height: 500px; } .w-full { width: 100%; } .w-80 { width: 20rem; } .w-32 { width: 8rem; } .max-w-xs { max-width: 20rem; } .max-w-sm { max-width: 24rem; } .flex-1 { flex: 1 1 0%; } .flex-col { flex-direction: column; } .items-center { align-items: center; } .justify-center { justify-content: center; } .justify-between { justify-content: space-between; } .gap-2 { gap: 0.5rem; } .gap-3 { gap: 0.75rem; } .gap-4 { gap: 1rem; } .rounded-lg { border-radius: 0.5rem; } .rounded-md { border-radius: 0.375rem; } .rounded-full { border-radius: 9999px; } .border { border-width: 1px; } .border-gray-200 { border-color: #e5e7eb; } .border-gray-300 { border-color: #d1d5db; } .bg-white { background-color: #ffffff; } .bg-gray-50 { background-color: #f9fafb; } .bg-gray-100 { background-color: #f3f4f6; } .bg-blue-600 { background-color: #2563eb; } .bg-blue-50 { background-color: #eff6ff; } .bg-red-500 { background-color: #ef4444; } .p-3 { padding: 0.75rem; } .p-4 { padding: 1rem; } .p-6 { padding: 1.5rem; } .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; } .px-4 { padding-left: 1rem; padding-right: 1rem; } .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; } .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; } .mb-2 { margin-bottom: 0.5rem; } .mb-3 { margin-bottom: 0.75rem; } .mb-4 { margin-bottom: 1rem; } .mr-2 { margin-right: 0.5rem; } .text-sm { font-size: 0.875rem; line-height: 1.25rem; } .text-base { font-size: 1rem; line-height: 1.5rem; } .text-lg { font-size: 1.125rem; line-height: 1.75rem; } .text-xl { font-size: 1.25rem; line-height: 1.75rem; } .font-medium { font-weight: 500; } .font-semibold { font-weight: 600; } .font-bold { font-weight: 700; } .text-gray-600 { color: #4b5563; } .text-gray-700 { color: #374151; } .text-gray-800 { color: #1f2937; } .text-blue-600 { color: #2563eb; } .text-white { color: #ffffff; } .text-red-600 { color: #dc2626; } .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); } .shadow-md { box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); } .shadow-lg { box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); } .hover\\:bg-gray-50:hover { background-color: #f9fafb; } .hover\\:bg-blue-700:hover { background-color: #1d4ed8; } .focus\\:outline-none:focus { outline: 2px solid transparent; outline-offset: 2px; } .focus\\:ring-2:focus { --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color); --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color); box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000); } .focus\\:ring-blue-500:focus { --tw-ring-color: #3b82f6; } .transition { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; } .cursor-pointer { cursor: pointer; } .select-none { user-select: none; } .overflow-hidden { overflow: hidden; } .overflow-y-auto { overflow-y: auto; } .space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem; } .space-y-3 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.75rem; } .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } @media (min-width: 768px) { .md\\:flex-row { flex-direction: row; } .md\\:w-96 { width: 24rem; } }";
 var style = document.createElement('style');
 style.textContent = css;
 document.head.appendChild(style);
@@ -56,7 +57,7 @@ document.head.appendChild(style);
         
         // Convert the data to match our expected format
         offices.push({
-          id: index + 1, // Use numeric ID for internal use
+          id: index + 1,
           name: officeData.name,
           address: officeData.address,
           city: officeData.city,
@@ -99,7 +100,6 @@ document.head.appendChild(style);
   // Enhanced geocoding function that relies only on Google Maps API
   const geocodeLocation = async (location) => {
     try {
-      // Check if Google Maps is available and properly loaded
       if (typeof window !== 'undefined' && window.google && window.google.maps && window.google.maps.Geocoder) {
         console.log('Using Google Maps Geocoding API for:', location);
         const geocoder = new window.google.maps.Geocoder();
@@ -119,7 +119,6 @@ document.head.appendChild(style);
 
         if (result.length > 0) {
           const location = result[0].geometry.location;
-          // Use proper methods to get lat/lng
           const lat = typeof location.lat === 'function' ? location.lat() : location.lat;
           const lng = typeof location.lng === 'function' ? location.lng() : location.lng;
           return { lat, lng, address: result[0].formatted_address };
@@ -291,16 +290,26 @@ document.head.appendChild(style);
 
               const infoWindow = new window.google.maps.InfoWindow({
                 content: `
-                  <div style="padding: 8px;">
-                    <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 4px;">${office.name}</h3>
-                    <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 2px;">${office.address}</p>
-                    <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 4px;">${office.city}, ${office.state} ${office.zip}</p>
-                    ${office.phone ? `<p style="font-size: 0.875rem; color: #2563eb; margin-bottom: 12px;">${office.phone}</p>` : ''}
-                    <div>
-                      <a href="${office.officeUrl || '/office/' + office.id}" style="display: inline-flex; align-items: center; padding: 6px 12px; background-color: #2563eb; color: white; font-size: 0.875rem; border-radius: 4px; text-decoration: none; transition: background-color 0.15s;" 
+                  <div style="max-width: 300px; padding: 16px; font-family: ui-sans-serif, system-ui, sans-serif;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                      <h3 style="font-size: 18px; font-weight: 600; color: #1f2937; margin: 0; line-height: 1.4;">${office.name}</h3>
+                      <button onclick="this.parentElement.parentElement.parentElement.remove()" style="background: none; border: none; font-size: 18px; color: #6b7280; cursor: pointer; padding: 0; margin-left: 8px;">×</button>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                      <p style="font-size: 14px; color: #4b5563; margin: 0; line-height: 1.4;">${office.address}</p>
+                      <p style="font-size: 14px; color: #4b5563; margin: 0; line-height: 1.4;">${office.city}, ${office.state} ${office.zip}</p>
+                    </div>
+                    ${office.phone ? `<div style="margin-bottom: 12px;"><a href="tel:${office.phone}" style="font-size: 14px; color: #2563eb; text-decoration: none;">${office.phone}</a></div>` : ''}
+                    <div style="display: flex; gap: 8px;">
+                      <a href="${office.officeUrl || '/office/' + office.id}" target="_blank" style="display: inline-flex; align-items: center; padding: 8px 16px; background-color: #2563eb; color: white; font-size: 14px; font-weight: 500; border-radius: 6px; text-decoration: none; transition: background-color 0.15s;" 
                          onmouseover="this.style.backgroundColor='#1d4ed8'" 
                          onmouseout="this.style.backgroundColor='#2563eb'">
-                        Details
+                        View Details
+                      </a>
+                      <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(fullAddress)}" target="_blank" style="display: inline-flex; align-items: center; padding: 8px 16px; background-color: #f3f4f6; color: #374151; font-size: 14px; font-weight: 500; border-radius: 6px; text-decoration: none; transition: background-color 0.15s;" 
+                         onmouseover="this.style.backgroundColor='#e5e7eb'" 
+                         onmouseout="this.style.backgroundColor='#f3f4f6'">
+                        Get Directions
                       </a>
                     </div>
                   </div>
@@ -406,16 +415,27 @@ document.head.appendChild(style);
 
               const infoWindow = new window.google.maps.InfoWindow({
                 content: `
-                  <div style="padding: 8px;">
-                    <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 4px;">${office.name}</h3>
-                    <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 2px;">${office.address}</p>
-                    <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 4px;">${office.city}, ${office.state} ${office.zip}</p>
-                    ${office.phone ? `<p style="font-size: 0.875rem; color: #2563eb; margin-bottom: 12px;">${office.phone}</p>` : ''}
-                    <div>
-                      <a href="${office.officeUrl || '/office/' + office.id}" style="display: inline-flex; align-items: center; padding: 6px 12px; background-color: #2563eb; color: white; font-size: 0.875rem; border-radius: 4px; text-decoration: none; transition: background-color 0.15s;" 
+                  <div style="max-width: 300px; padding: 16px; font-family: ui-sans-serif, system-ui, sans-serif;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                      <h3 style="font-size: 18px; font-weight: 600; color: #1f2937; margin: 0; line-height: 1.4;">${office.name}</h3>
+                      <button onclick="this.parentElement.parentElement.parentElement.remove()" style="background: none; border: none; font-size: 18px; color: #6b7280; cursor: pointer; padding: 0; margin-left: 8px;">×</button>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                      <p style="font-size: 14px; color: #4b5563; margin: 0; line-height: 1.4;">${office.address}</p>
+                      <p style="font-size: 14px; color: #4b5563; margin: 0; line-height: 1.4;">${office.city}, ${office.state} ${office.zip}</p>
+                    </div>
+                    ${office.phone ? `<div style="margin-bottom: 12px;"><a href="tel:${office.phone}" style="font-size: 14px; color: #2563eb; text-decoration: none;">${office.phone}</a></div>` : ''}
+                    ${office.distance !== undefined ? `<div style="margin-bottom: 12px; font-size: 14px; color: #059669; font-weight: 500;">${office.distance} miles away</div>` : ''}
+                    <div style="display: flex; gap: 8px;">
+                      <a href="${office.officeUrl || '/office/' + office.id}" target="_blank" style="display: inline-flex; align-items: center; padding: 8px 16px; background-color: #2563eb; color: white; font-size: 14px; font-weight: 500; border-radius: 6px; text-decoration: none; transition: background-color 0.15s;" 
                          onmouseover="this.style.backgroundColor='#1d4ed8'" 
                          onmouseout="this.style.backgroundColor='#2563eb'">
-                        Details
+                        View Details
+                      </a>
+                      <a href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(fullAddress)}" target="_blank" style="display: inline-flex; align-items: center; padding: 8px 16px; background-color: #f3f4f6; color: #374151; font-size: 14px; font-weight: 500; border-radius: 6px; text-decoration: none; transition: background-color 0.15s;" 
+                         onmouseover="this.style.backgroundColor='#e5e7eb'" 
+                         onmouseout="this.style.backgroundColor='#f3f4f6'">
+                        Get Directions
                       </a>
                     </div>
                   </div>
@@ -457,7 +477,6 @@ document.head.appendChild(style);
     }, [clearMapElements]);
 
     useEffect(() => {
-      // Check if Google Maps is already fully loaded
       if (isGoogleMapsFullyLoaded()) {
         console.log('Google Maps already loaded, initializing map');
         initializeMap();
@@ -479,13 +498,11 @@ document.head.appendChild(style);
         return;
       }
 
-      // Only load if there's no existing Google Maps
       scriptLoadedRef.current = true;
       
       window[uniqueCallback] = () => {
         console.log('Google Maps callback triggered for widget:', WIDGET_ID);
         window[`googleMapsLoaded_${WIDGET_ID}`] = true;
-        // Use waitForGoogleMaps even in callback to ensure everything is ready
         waitForGoogleMaps(initializeMap);
       };
 
@@ -547,7 +564,6 @@ document.head.appendChild(style);
 
         setSearchCenter(coordinates);
 
-        // Filter offices within radius using proper distance calculation
         const nearbyOffices = [];
         
         for (const office of offices) {
@@ -565,13 +581,12 @@ document.head.appendChild(style);
             if (distance <= radius) {
               nearbyOffices.push({
                 ...office,
-                distance: Math.round(distance * 10) / 10 // Round to 1 decimal place
+                distance: Math.round(distance * 10) / 10
               });
             }
           }
         }
 
-        // Sort by distance
         nearbyOffices.sort((a, b) => (a.distance || 0) - (b.distance || 0));
 
         console.log('Found', nearbyOffices.length, 'offices within', radius, 'miles');
@@ -604,7 +619,7 @@ document.head.appendChild(style);
     };
   };
 
-  // SearchPanel Component
+  // Modern SearchPanel Component
   const SearchPanel = ({ onSearch, isLoading }) => {
     const [location, setLocation] = useState('');
     const [radius, setRadius] = useState('25');
@@ -623,35 +638,25 @@ document.head.appendChild(style);
       { value: '100', label: '100 miles' }
     ];
 
-    return e('div', { className: 'bg-card rounded-lg shadow-lg p-6 mb-6' },
-      e('div', { className: 'mb-4' },
-        e('h2', { className: 'text-lg font-medium flex items-center gap-2' },
-          '📍 Find Offices Near You'
-        ),
-        e('p', { className: 'text-sm text-muted-foreground mt-1' },
-          'Enter your ZIP code or city name to find nearby office locations.'
-        )
-      ),
-      e('form', { onSubmit: handleSubmit, className: 'space-y-4' },
-        e('div', { className: 'space-y-2' },
-          e('label', { htmlFor: 'locationInput', className: 'text-sm font-medium' }, 'Location'),
+    return e('div', { 
+      className: 'absolute top-4 left-4 z-10 bg-white rounded-lg shadow-lg p-4 w-80 md:w-96'
+    },
+      e('form', { onSubmit: handleSubmit, className: 'flex flex-col md:flex-row gap-3' },
+        e('div', { className: 'flex-1' },
           e('input', {
-            id: 'locationInput',
             type: 'text',
-            placeholder: 'Enter ZIP code or city name',
+            placeholder: 'Enter a location',
             value: location,
             onChange: (e) => setLocation(e.target.value),
-            className: 'w-full h-10 px-3 py-2 border border-input bg-background rounded-md text-base placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+            className: 'w-full px-3 py-2 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500',
             disabled: isLoading
           })
         ),
-        e('div', { className: 'space-y-2' },
-          e('label', { htmlFor: 'radiusInput', className: 'text-sm font-medium' }, 'Search Radius'),
+        e('div', { className: 'w-32' },
           e('select', {
-            id: 'radiusInput',
             value: radius,
             onChange: (e) => setRadius(e.target.value),
-            className: 'w-full h-10 px-3 py-2 border border-input bg-background rounded-md text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+            className: 'w-full px-3 py-2 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500',
             disabled: isLoading
           },
             radiusOptions.map(option =>
@@ -660,73 +665,57 @@ document.head.appendChild(style);
           )
         ),
         e('button', {
-          id: 'searchButton',
           type: 'submit',
-          className: 'w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2',
+          className: 'px-4 py-2 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition',
           disabled: isLoading || !location.trim()
         },
-          isLoading ? '🔄 Searching...' : '🔍 Search Offices'
+          isLoading ? 'Searching...' : 'Search'
         )
       )
     );
   };
 
-  // OfficeList Component
+  // Modern OfficeList Component
   const OfficeList = ({ offices }) => {
     if (offices.length === 0) return null;
 
-    return e('div', { className: 'bg-card rounded-lg shadow-lg p-6' },
-      e('div', { className: 'mb-4' },
-        e('h2', { className: 'text-lg font-medium flex items-center gap-2' },
-          '🏢 Search Results'
-        ),
-        e('div', { className: 'mt-2' },
-          e('span', { className: 'inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-secondary text-secondary-foreground' },
-            `${offices.length} office${offices.length === 1 ? '' : 's'} found`
-          )
-        )
+    return e('div', { 
+      className: 'absolute top-4 right-4 z-10 bg-white rounded-lg shadow-lg p-4 w-80 max-w-sm'
+    },
+      e('div', { className: 'mb-3' },
+        e('h3', { className: 'text-lg font-semibold text-gray-800' }, 'Nearby Locations'),
+        e('p', { className: 'text-sm text-gray-600' }, `${offices.length} location${offices.length === 1 ? '' : 's'} found`)
       ),
-      e('div', { id: 'resultsList', className: 'space-y-4 max-h-96 overflow-y-auto' },
+      e('div', { className: 'space-y-3 max-h-96 overflow-y-auto' },
         offices.map(office =>
           e('div', {
             key: office.id,
-            className: 'p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors'
+            className: 'p-3 border border-gray-200 rounded-md hover:bg-gray-50 transition cursor-pointer'
           },
             e('div', { className: 'flex justify-between items-start mb-2' },
-              e('h3', { className: 'font-medium text-lg' }, office.name),
-              e('button', {
-                className: 'inline-flex items-center gap-1 px-3 py-1.5 text-xs font-medium border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-md transition-colors',
-                onClick: () => window.open(office.officeUrl || `/office/${office.id}`, '_blank')
-              },
-                '🔗 Details'
-              )
+              e('h4', { className: 'font-medium text-gray-800 text-sm truncate mr-2' }, office.name),
+              office.distance !== undefined && e('span', { 
+                className: 'text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded-full'
+              }, `${office.distance}mi`)
             ),
-            e('div', { className: 'space-y-2 text-sm text-muted-foreground' },
-              e('div', { className: 'flex items-start gap-2' },
-                e('span', { className: 'mt-0.5' }, '📍'),
-                e('div', {},
-                  e('p', {}, office.address),
-                  e('p', {}, `${office.city}, ${office.state} ${office.zip}`)
-                )
-              ),
-              office.phone && e('div', { className: 'flex items-center gap-2' },
-                e('span', {}, '📞'),
-                e('a', {
-                  href: `tel:${office.phone}`,
-                  className: 'text-primary hover:underline'
-                }, office.phone)
-              ),
-              office.email && e('div', { className: 'flex items-center gap-2' },
-                e('span', {}, '✉️'),
-                e('a', {
-                  href: `mailto:${office.email}`,
-                  className: 'text-primary hover:underline'
-                }, office.email)
-              ),
-              office.distance !== undefined && e('div', { className: 'flex items-center gap-2' },
-                e('span', {}, '📏'),
-                e('span', { className: 'text-primary font-medium' }, `${office.distance} miles away`)
-              )
+            e('div', { className: 'text-xs text-gray-600 space-y-1' },
+              e('p', { className: 'truncate' }, office.address),
+              e('p', { className: 'truncate' }, `${office.city}, ${office.state} ${office.zip}`),
+              office.phone && e('p', { className: 'text-blue-600' }, office.phone)
+            ),
+            e('div', { className: 'flex gap-2 mt-3' },
+              e('a', {
+                href: office.officeUrl || `/office/${office.id}`,
+                target: '_blank',
+                className: 'text-xs bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 transition',
+                rel: 'noopener noreferrer'
+              }, 'Details'),
+              e('a', {
+                href: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${office.address}, ${office.city}, ${office.state} ${office.zip}`)}`,
+                target: '_blank',
+                className: 'text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-md hover:bg-gray-200 transition',
+                rel: 'noopener noreferrer'
+              }, 'Directions')
             )
           )
         )
@@ -740,7 +729,6 @@ document.head.appendChild(style);
     const { mapRef, mapInstanceRef, mapError, addOfficeMarkersToMap, addMarkersToMap } = useGoogleMaps();
     const { filteredOffices, isLoading, currentRadius, handleSearch } = useOfficeSearch(offices);
 
-    // Parse offices from HTML on component mount
     useEffect(() => {
       const parsedOffices = parseOfficesFromHTML();
       setOffices(parsedOffices);
@@ -760,32 +748,24 @@ document.head.appendChild(style);
       });
     };
 
-    return e('div', { className: 'max-w-7xl mx-auto' },
-      e('div', { className: 'grid grid-cols-1 lg:grid-cols-3 gap-6' },
-        e('div', { className: 'lg:col-span-1' },
-          e(SearchPanel, { onSearch: onSearch, isLoading }),
-          e(OfficeList, { offices: filteredOffices })
-        ),
-        e('div', { className: 'lg:col-span-2' },
-          e('div', { className: 'bg-card rounded-lg shadow-lg overflow-hidden h-[600px]' },
-            mapError ? 
-              e('div', { className: 'w-full h-full flex items-center justify-center bg-gray-100' },
-                e('div', { className: 'text-center p-6' },
-                  e('p', { className: 'text-red-600 font-medium mb-2' }, 'Map Loading Error'),
-                  e('p', { className: 'text-sm text-gray-600 mb-4' }, mapError),
-                  e('p', { className: 'text-xs text-gray-500' }, 
-                    'Try disabling ad blockers or refreshing the page'
-                  )
-                )
-              ) :
-              e('div', { 
-                ref: mapRef, 
-                id: 'map', 
-                className: 'w-full h-full'
-              })
+    return e('div', { className: 'relative w-full h-[500px] rounded-lg overflow-hidden' },
+      e(SearchPanel, { onSearch: onSearch, isLoading }),
+      e(OfficeList, { offices: filteredOffices }),
+      mapError ? 
+        e('div', { className: 'w-full h-full flex items-center justify-center bg-gray-100' },
+          e('div', { className: 'text-center p-6' },
+            e('p', { className: 'text-red-600 font-medium mb-2' }, 'Map Loading Error'),
+            e('p', { className: 'text-sm text-gray-600 mb-4' }, mapError),
+            e('p', { className: 'text-xs text-gray-500' }, 
+              'Try disabling ad blockers or refreshing the page'
+            )
           )
-        )
-      )
+        ) :
+        e('div', { 
+          ref: mapRef, 
+          id: 'map', 
+          className: 'w-full h-full'
+        })
     );
   };
 
@@ -793,18 +773,8 @@ document.head.appendChild(style);
   const OfficeLocatorWidget = () => {
     console.log('OfficeLocatorWidget component rendering');
     
-    return e('div', { className: 'min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100' },
-      e('div', { className: 'container mx-auto px-4 py-8' },
-        e('div', { className: 'text-center mb-8' },
-          e('h1', { className: 'text-4xl md:text-5xl font-bold text-foreground mb-4' },
-            'Office Locator'
-          ),
-          e('p', { className: 'text-lg text-muted-foreground max-w-2xl mx-auto' },
-            'Find our office locations near you. Enter your ZIP code or city name and search radius to discover nearby offices.'
-          )
-        ),
-        e(OfficeLocator)
-      )
+    return e('div', { className: 'w-full' },
+      e(OfficeLocator)
     );
   };
 
@@ -847,4 +817,5 @@ document.head.appendChild(style);
     window.initOfficeLocator('office-locator-widget');
   }
 
+})();
 })();
