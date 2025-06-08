@@ -158,7 +158,45 @@ document.head.appendChild(style);
     info: (message) => console.info('Info:', message)
   };
 
-  // useGoogleMaps hook with improved error handling and conflict prevention
+  // Enhanced Google Maps availability check
+  const isGoogleMapsFullyLoaded = () => {
+    try {
+      return !!(window.google && 
+               window.google.maps && 
+               window.google.maps.Map &&
+               window.google.maps.Marker &&
+               window.google.maps.Circle &&
+               window.google.maps.Geocoder &&
+               window.google.maps.InfoWindow &&
+               window.google.maps.LatLngBounds &&
+               window.google.maps.event &&
+               window.google.maps.event.addListener);
+    } catch (error) {
+      console.error('Error checking Google Maps availability:', error);
+      return false;
+    }
+  };
+
+  // Wait for Google Maps to be fully loaded
+  const waitForGoogleMaps = (callback, maxAttempts = 50, attempt = 0) => {
+    if (isGoogleMapsFullyLoaded()) {
+      console.log('Google Maps is fully loaded');
+      callback();
+      return;
+    }
+    
+    if (attempt >= maxAttempts) {
+      console.error('Google Maps failed to load after maximum attempts');
+      return;
+    }
+    
+    console.log(`Waiting for Google Maps... attempt ${attempt + 1}/${maxAttempts}`);
+    setTimeout(() => {
+      waitForGoogleMaps(callback, maxAttempts, attempt + 1);
+    }, 100);
+  };
+
+  // useGoogleMaps hook with improved loading and error handling
   const useGoogleMaps = () => {
     const [mapError, setMapError] = useState(null);
     const mapRef = useRef(null);
@@ -168,28 +206,21 @@ document.head.appendChild(style);
     const mapLoadedRef = useRef(false);
     const scriptLoadedRef = useRef(false);
 
-    const isGoogleMapsAvailable = useCallback(() => {
-      try {
-        return !!(window.google && 
-                 window.google.maps && 
-                 window.google.maps.Map &&
-                 window.google.maps.Marker &&
-                 window.google.maps.Circle &&
-                 window.google.maps.Geocoder &&
-                 window.google.maps.InfoWindow &&
-                 window.google.maps.LatLngBounds);
-      } catch (error) {
-        console.error('Error checking Google Maps availability:', error);
-        return false;
-      }
-    }, []);
-
     const hasExistingGoogleMaps = useCallback(() => {
       return document.querySelector('script[src*="maps.googleapis.com"]') !== null;
     }, []);
 
     const initializeMap = useCallback(() => {
-      if (!mapRef.current || mapInstanceRef.current || !isGoogleMapsAvailable()) return;
+      if (!mapRef.current || mapInstanceRef.current) {
+        console.log('Map ref not available or map already initialized');
+        return;
+      }
+
+      if (!isGoogleMapsFullyLoaded()) {
+        console.log('Google Maps not fully loaded yet, waiting...');
+        waitForGoogleMaps(initializeMap);
+        return;
+      }
 
       try {
         console.log('Initializing Google Maps...');
@@ -218,7 +249,7 @@ document.head.appendChild(style);
         console.error('Failed to initialize map:', error);
         setMapError('Failed to load map. Please check if ad blockers are interfering.');
       }
-    }, [isGoogleMapsAvailable]);
+    }, []);
 
     const clearMapElements = useCallback(() => {
       try {
@@ -239,7 +270,16 @@ document.head.appendChild(style);
     }, []);
 
     const addOfficeMarkersToMap = useCallback(async (offices) => {
-      if (!mapInstanceRef.current || !isGoogleMapsAvailable()) return;
+      if (!mapInstanceRef.current) {
+        console.log('Map not ready for markers');
+        return;
+      }
+
+      if (!isGoogleMapsFullyLoaded()) {
+        console.log('Google Maps not fully loaded, waiting before adding markers...');
+        waitForGoogleMaps(() => addOfficeMarkersToMap(offices));
+        return;
+      }
 
       clearMapElements();
 
@@ -313,10 +353,19 @@ document.head.appendChild(style);
       } catch (error) {
         console.error('Error adding markers to map:', error);
       }
-    }, [clearMapElements, isGoogleMapsAvailable]);
+    }, [clearMapElements]);
 
     const addMarkersToMap = useCallback(async (offices, center, currentRadius) => {
-      if (!mapInstanceRef.current || !isGoogleMapsAvailable()) return;
+      if (!mapInstanceRef.current) {
+        console.log('Map not ready for search markers');
+        return;
+      }
+
+      if (!isGoogleMapsFullyLoaded()) {
+        console.log('Google Maps not fully loaded, waiting before adding search markers...');
+        waitForGoogleMaps(() => addMarkersToMap(offices, center, currentRadius));
+        return;
+      }
 
       clearMapElements();
 
@@ -417,10 +466,11 @@ document.head.appendChild(style);
       } catch (error) {
         console.error('Error updating map markers:', error);
       }
-    }, [clearMapElements, isGoogleMapsAvailable]);
+    }, [clearMapElements]);
 
     useEffect(() => {
-      if (isGoogleMapsAvailable()) {
+      // Check if Google Maps is already fully loaded
+      if (isGoogleMapsFullyLoaded()) {
         console.log('Google Maps already loaded, initializing map');
         initializeMap();
         return;
@@ -433,29 +483,22 @@ document.head.appendChild(style);
       if (hasExistingGoogleMaps()) {
         console.log('Google Maps script already exists, waiting for it to load');
         
-        const checkInterval = setInterval(() => {
-          if (isGoogleMapsAvailable()) {
-            clearInterval(checkInterval);
-            initializeMap();
-          }
-        }, 100);
-
-        setTimeout(() => {
-          clearInterval(checkInterval);
-          if (!isGoogleMapsAvailable()) {
-            setMapError('Google Maps failed to load within timeout period.');
-          }
-        }, 10000);
+        waitForGoogleMaps(() => {
+          console.log('Google Maps loaded via existing script');
+          initializeMap();
+        });
         
         return;
       }
 
+      // Only load if there's no existing Google Maps
       scriptLoadedRef.current = true;
       
       window[uniqueCallback] = () => {
         console.log('Google Maps callback triggered for widget:', WIDGET_ID);
         window[`googleMapsLoaded_${WIDGET_ID}`] = true;
-        initializeMap();
+        // Use waitForGoogleMaps even in callback to ensure everything is ready
+        waitForGoogleMaps(initializeMap);
       };
 
       const script = document.createElement('script');
@@ -480,7 +523,7 @@ document.head.appendChild(style);
           delete window[uniqueCallback];
         }
       };
-    }, [initializeMap, isGoogleMapsAvailable, hasExistingGoogleMaps]);
+    }, [initializeMap, hasExistingGoogleMaps]);
 
     return {
       mapRef,
