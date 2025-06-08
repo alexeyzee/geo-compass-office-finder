@@ -128,6 +128,11 @@ const OfficeLocator = () => {
             <p class="text-sm text-gray-600">${office.address}</p>
             <p class="text-sm text-gray-600">${office.city}, ${office.state} ${office.zip}</p>
             ${office.phone ? `<p class="text-sm text-blue-600 mt-1">${office.phone}</p>` : ''}
+            <div class="mt-3">
+              <a href="/office/${office.id}" class="inline-flex items-center px-3 py-1.5 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors">
+                Details
+              </a>
+            </div>
           </div>
         `,
       });
@@ -210,6 +215,11 @@ const OfficeLocator = () => {
             <p class="text-sm text-gray-600">${office.address}</p>
             <p class="text-sm text-gray-600">${office.city}, ${office.state} ${office.zip}</p>
             ${office.phone ? `<p class="text-sm text-blue-600 mt-1">${office.phone}</p>` : ''}
+            <div class="mt-3">
+              <a href="/office/${office.id}" class="inline-flex items-center px-3 py-1.5 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors">
+                Details
+              </a>
+            </div>
           </div>
         `,
       });

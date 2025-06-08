@@ -1,8 +1,10 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Phone, Mail, Building } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { MapPin, Phone, Mail, Building, ExternalLink } from 'lucide-react';
 
 interface Office {
   id: number;
@@ -45,9 +47,17 @@ const OfficeList = ({ offices }: OfficeListProps) => {
           {offices.map((office) => (
             <div
               key={office.id}
-              className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors cursor-pointer"
+              className="p-4 border border-border rounded-lg hover:bg-accent/50 transition-colors"
             >
-              <h3 className="font-semibold text-lg mb-2">{office.name}</h3>
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="font-semibold text-lg">{office.name}</h3>
+                <Button asChild size="sm" variant="outline">
+                  <Link to={`/office/${office.id}`}>
+                    <ExternalLink className="w-3 h-3 mr-1" />
+                    Details
+                  </Link>
+                </Button>
+              </div>
               
               <div className="space-y-2 text-sm text-muted-foreground">
                 <div className="flex items-start gap-2">
