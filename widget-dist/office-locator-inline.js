@@ -1,9 +1,9 @@
-
 (function(){
 var css = ":root { --background: 0 0% 100%; --foreground: 222.2 84% 4.9%; --card: 0 0% 100%; --card-foreground: 222.2 84% 4.9%; --popover: 0 0% 100%; --popover-foreground: 222.2 84% 4.9%; --primary: 221.2 83.2% 53.3%; --primary-foreground: 210 40% 98%; --secondary: 210 40% 96%; --secondary-foreground: 222.2 84% 4.9%; --muted: 210 40% 96%; --muted-foreground: 215.4 16.3% 46.9%; --accent: 210 40% 96%; --accent-foreground: 222.2 84% 4.9%; --destructive: 0 62.8% 30.6%; --destructive-foreground: 210 40% 98%; --border: 214.3 31.8% 91.4%; --input: 214.3 31.8% 91.4%; --ring: 221.2 83.2% 53.3%; --chart-1: 12 76% 61%; --chart-2: 173 58% 39%; --chart-3: 197 37% 24%; --chart-4: 43 74% 66%; --chart-5: 27 87% 67%; --radius: 0.5rem; } *, ::before, ::after { box-sizing: border-box; border-width: 0; border-style: solid; border-color: #e5e7eb; } ::before, ::after { --tw-content: ''; } html, :host { line-height: 1.5; -webkit-text-size-adjust: 100%; -moz-tab-size: 4; tab-size: 4; font-family: ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; font-feature-settings: normal; font-variation-settings: normal; -webkit-tap-highlight-color: transparent; } body { margin: 0; line-height: inherit; } .min-h-screen { min-height: 100vh; } .bg-gradient-to-br { background-image: linear-gradient(to bottom right, var(--tw-gradient-stops)); } .from-blue-50 { --tw-gradient-from: #eff6ff var(--tw-gradient-from-position); --tw-gradient-to: rgb(239 246 255 / 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); } .to-indigo-100 { --tw-gradient-to: #e0e7ff var(--tw-gradient-to-position); } .container { width: 100%; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; } @media (min-width: 640px) { .container { max-width: 640px; } } @media (min-width: 768px) { .container { max-width: 768px; } } @media (min-width: 1024px) { .container { max-width: 1024px; } } @media (min-width: 1280px) { .container { max-width: 1280px; } } @media (min-width: 1536px) { .container { max-width: 1536px; } } .mx-auto { margin-left: auto; margin-right: auto; } .px-4 { padding-left: 1rem; padding-right: 1rem; } .py-8 { padding-top: 2rem; padding-bottom: 2rem; } .text-center { text-align: center; } .mb-8 { margin-bottom: 2rem; } .text-4xl { font-size: 2.25rem; line-height: 2.5rem; } @media (min-width: 768px) { .md\\:text-5xl { font-size: 3rem; line-height: 1; } } .font-bold { font-weight: 700; } .text-foreground { color: hsl(var(--foreground)); } .mb-4 { margin-bottom: 1rem; } .text-lg { font-size: 1.125rem; line-height: 1.75rem; } .text-muted-foreground { color: hsl(var(--muted-foreground)); } .max-w-2xl { max-width: 42rem; } .max-w-7xl { max-width: 80rem; } .grid { display: grid; } .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); } @media (min-width: 1024px) { .lg\\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } } @media (min-width: 1024px) { .lg\\:col-span-1 { grid-column: span 1 / span 1; } } @media (min-width: 1024px) { .lg\\:col-span-2 { grid-column: span 2 / span 2; } } .gap-6 { gap: 1.5rem; } .bg-card { background-color: hsl(var(--card)); } .rounded-lg { border-radius: 0.5rem; } .shadow-lg { box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); } .overflow-hidden { overflow: hidden; } .h-\\[600px\\] { height: 600px; } .w-full { width: 100%; } .h-full { height: 100%; } .flex { display: flex; } .items-center { align-items: center; } .justify-center { justify-content: center; } .bg-gray-100 { background-color: #f3f4f6; } .p-6 { padding: 1.5rem; } .text-red-600 { color: #dc2626; } .font-medium { font-weight: 500; } .mb-2 { margin-bottom: 0.5rem; } .text-sm { font-size: 0.875rem; line-height: 1.25rem; } .text-gray-600 { color: #4b5563; } .text-xs { font-size: 0.75rem; line-height: 1rem; } .text-gray-500 { color: #6b7280; } .inline-flex { display: inline-flex; } .items-center { align-items: center; } .justify-center { justify-content: center; } .gap-2 { gap: 0.5rem; } .whitespace-nowrap { white-space: nowrap; } .rounded-md { border-radius: 0.375rem; } .font-medium { font-weight: 500; } .ring-offset-background { --tw-ring-offset-color: hsl(var(--background)); } .transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; } .focus-visible\\:outline-none:focus-visible { outline: 2px solid transparent; outline-offset: 2px; } .focus-visible\\:ring-2:focus-visible { --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color); --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color); box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000); } .disabled\\:pointer-events-none:disabled { pointer-events: none; } .disabled\\:opacity-50:disabled { opacity: 0.5; } .bg-primary { background-color: hsl(var(--primary)); } .text-primary-foreground { color: hsl(var(--primary-foreground)); } .hover\\:bg-primary\\/90:hover { background-color: hsl(var(--primary) / 0.9); } .h-10 { height: 2.5rem; } .px-4 { padding-left: 1rem; padding-right: 1rem; } .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; } .border { border-width: 1px; } .border-border { border-color: hsl(var(--border)); } .bg-card { background-color: hsl(var(--card)); } .text-card-foreground { color: hsl(var(--card-foreground)); } .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); } .border-input { border-color: hsl(var(--input)); } .bg-background { background-color: hsl(var(--background)); } .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; } .text-base { font-size: 1rem; line-height: 1.5rem; } .placeholder\\:text-muted-foreground::placeholder { color: hsl(var(--muted-foreground)); } .focus-visible\\:ring-ring:focus-visible { --tw-ring-color: hsl(var(--ring)); } .select-none { user-select: none; } .text-sm { font-size: 0.875rem; line-height: 1.25rem; } .font-medium { font-weight: 500; } .leading-none { line-height: 1; } .space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem; } .space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem; } .mr-2 { margin-right: 0.5rem; } .mt-1 { margin-top: 0.25rem; } .mt-3 { margin-top: 0.75rem; } .p-2 { padding: 0.5rem; } .p-4 { padding: 1rem; } .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; } .py-1\\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; } .text-blue-600 { color: #2563eb; } .bg-blue-600 { background-color: #2563eb; } .hover\\:bg-blue-700:hover { background-color: #1d4ed8; } .text-white { color: #ffffff; } .max-h-96 { max-height: 24rem; } .overflow-y-auto { overflow-y: auto; } .border-border { border-color: hsl(var(--border)); } .hover\\:bg-accent\\/50:hover { background-color: hsl(var(--accent) / 0.5); } .flex-shrink-0 { flex-shrink: 0; } .text-primary { color: hsl(var(--primary)); } .hover\\:underline:hover { text-decoration-line: underline; } .animate-spin { animation: spin 1s linear infinite; } @keyframes spin { to { transform: rotate(360deg); } } .h-4 { height: 1rem; } .w-4 { width: 1rem; } .h-5 { height: 1.25rem; } .w-5 { width: 1.25rem; } .w-3 { width: 0.75rem; } .h-3 { height: 0.75rem; } .mr-1 { margin-right: 0.25rem; } .mt-0\\.5 { margin-top: 0.125rem; } .bg-secondary { background-color: hsl(var(--secondary)); } .text-secondary-foreground { color: hsl(var(--secondary-foreground)); } .px-2\\.5 { padding-left: 0.625rem; padding-right: 0.625rem; } .py-0\\.5 { padding-top: 0.125rem; padding-bottom: 0.125rem; } .border-input { border-color: hsl(var(--input)); } .hover\\:bg-accent:hover { background-color: hsl(var(--accent)); } .hover\\:text-accent-foreground:hover { color: hsl(var(--accent-foreground)); } .h-9 { height: 2.25rem; } .justify-between { justify-content: space-between; } .items-start { align-items: flex-start; }";
 var style = document.createElement('style');
 style.textContent = css;
 document.head.appendChild(style);
+
 (function() {
   'use strict';
 
@@ -82,35 +82,144 @@ document.head.appendChild(style);
     }
   ];
 
-  // Utility functions
+  // Utility functions - locationUtils
   const calculateDistance = (lat1, lng1, lat2, lng2) => {
-    const R = 3959; // Radius of the Earth in miles
-    const dLat = (lat2 - lat1) * Math.PI / 180;
-    const dLng = (lng2 - lng1) * Math.PI / 180;
+    const R = 3959; // Earth's radius in miles
+    const dLat = toRadians(lat2 - lat1);
+    const dLng = toRadians(lng2 - lng1);
+    
     const a = 
-      Math.sin(dLat/2) * Math.sin(dLat/2) +
-      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
-      Math.sin(dLng/2) * Math.sin(dLng/2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    return R * c;
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) *
+      Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const distance = R * c;
+    
+    return distance;
   };
 
+  const toRadians = (degrees) => {
+    return degrees * (Math.PI / 180);
+  };
+
+  // Enhanced geocoding function
   const geocodeLocation = async (location) => {
-    if (!window.google || !window.google.maps) {
-      throw new Error('Google Maps not loaded');
+    // Check if Google Maps is available for geocoding
+    if (window.google && window.google.maps && window.google.maps.Geocoder) {
+      try {
+        console.log('Using Google Maps Geocoding API for:', location);
+        const geocoder = new window.google.maps.Geocoder();
+        const result = await new Promise((resolve, reject) => {
+          geocoder.geocode({ address: location }, (results, status) => {
+            if (status === 'OK' && results) {
+              resolve(results);
+            } else {
+              reject(new Error(`Geocoding failed: ${status}`));
+            }
+          });
+        });
+
+        if (result.length > 0) {
+          const { lat, lng } = result[0].geometry.location;
+          return { lat: lat(), lng: lng() };
+        }
+        
+        return null;
+      } catch (error) {
+        console.error('Geocoding error, falling back to mock data:', error);
+        // Fall back to mock data if geocoding fails
+      }
     }
 
-    return new Promise((resolve, reject) => {
-      const geocoder = new window.google.maps.Geocoder();
-      geocoder.geocode({ address: location }, (results, status) => {
-        if (status === 'OK' && results[0]) {
-          const { lat, lng } = results[0].geometry.location;
-          resolve({ lat: lat(), lng: lng() });
-        } else {
-          reject(new Error('Geocoding failed'));
-        }
-      });
-    });
+    // Fallback to mock geocoding data
+    console.log('Using mock geocoding for:', location);
+    // Simulate API delay
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // Mock geocoding data for demo purposes
+    const mockLocations = {
+      // Texas ZIP codes (for your office locations)
+      '77014': { lat: 29.9803, lng: -95.4431 }, // North Houston
+      '77058': { lat: 29.5527, lng: -95.0927 }, // Houston Clear Lake
+      '76116': { lat: 32.6722, lng: -97.4078 }, // Fort Worth
+      '76109': { lat: 32.6732, lng: -97.4606 }, // Benbrook
+      '75232': { lat: 32.6668, lng: -96.8364 }, // Dallas Oak Cliff
+      '75007': { lat: 32.9537, lng: -96.8903 }, // Carrollton
+      
+      // Texas cities
+      'houston': { lat: 29.7604, lng: -95.3698 },
+      'dallas': { lat: 32.7767, lng: -96.7970 },
+      'fort worth': { lat: 32.7555, lng: -97.3308 },
+      'austin': { lat: 30.2672, lng: -97.7431 },
+      'san antonio': { lat: 29.4241, lng: -98.4936 },
+      'carrollton': { lat: 32.9537, lng: -96.8903 },
+      'benbrook': { lat: 32.6732, lng: -97.4606 },
+      
+      // Other major US ZIP codes and cities
+      '10001': { lat: 40.7589, lng: -73.9851 }, // NYC
+      '90210': { lat: 34.0901, lng: -118.4065 }, // Beverly Hills
+      '60601': { lat: 41.8781, lng: -87.6298 }, // Chicago
+      '02108': { lat: 42.3601, lng: -71.0589 }, // Boston
+      '33139': { lat: 25.7617, lng: -80.1918 }, // Miami Beach
+      '94102': { lat: 37.7749, lng: -122.4194 }, // San Francisco
+      '98101': { lat: 47.6062, lng: -122.3321 }, // Seattle
+      '80202': { lat: 39.7392, lng: -104.9903 }, // Denver
+      '30309': { lat: 33.7490, lng: -84.3880 }, // Atlanta
+      
+      // Major cities
+      'new york': { lat: 40.7128, lng: -74.0060 },
+      'los angeles': { lat: 34.0522, lng: -118.2437 },
+      'chicago': { lat: 41.8781, lng: -87.6298 },
+      'phoenix': { lat: 33.4484, lng: -112.0740 },
+      'philadelphia': { lat: 39.9526, lng: -75.1652 },
+      'san diego': { lat: 32.7157, lng: -117.1611 },
+      'san jose': { lat: 37.3382, lng: -121.8863 },
+      'jacksonville': { lat: 30.3322, lng: -81.6557 },
+      'columbus': { lat: 39.9612, lng: -82.9988 },
+      'charlotte': { lat: 35.2271, lng: -80.8431 },
+      'san francisco': { lat: 37.7749, lng: -122.4194 },
+      'indianapolis': { lat: 39.7684, lng: -86.1581 },
+      'seattle': { lat: 47.6062, lng: -122.3321 },
+      'denver': { lat: 39.7392, lng: -104.9903 },
+      'washington': { lat: 38.9072, lng: -77.0369 },
+      'boston': { lat: 42.3601, lng: -71.0589 },
+      'el paso': { lat: 31.7619, lng: -106.4850 },
+      'detroit': { lat: 42.3314, lng: -83.0458 },
+      'nashville': { lat: 36.1627, lng: -86.7816 },
+      'memphis': { lat: 35.1495, lng: -90.0490 },
+      'portland': { lat: 45.5152, lng: -122.6784 },
+      'oklahoma city': { lat: 35.4676, lng: -97.5164 },
+      'las vegas': { lat: 36.1699, lng: -115.1398 },
+      'baltimore': { lat: 39.2904, lng: -76.6122 },
+      'milwaukee': { lat: 43.0389, lng: -87.9065 },
+      'albuquerque': { lat: 35.0844, lng: -106.6504 },
+      'tucson': { lat: 32.2226, lng: -110.9747 },
+      'fresno': { lat: 36.7378, lng: -119.7871 },
+      'sacramento': { lat: 38.5816, lng: -121.4944 },
+      'kansas city': { lat: 39.0997, lng: -94.5786 },
+      'mesa': { lat: 33.4152, lng: -111.8315 },
+      'atlanta': { lat: 33.7490, lng: -84.3880 },
+      'colorado springs': { lat: 38.8339, lng: -104.8214 },
+      'omaha': { lat: 41.2565, lng: -95.9345 },
+      'raleigh': { lat: 35.7796, lng: -78.6382 },
+      'miami': { lat: 25.7617, lng: -80.1918 },
+      'long beach': { lat: 33.7701, lng: -118.1937 },
+      'virginia beach': { lat: 36.8529, lng: -75.9780 },
+      'oakland': { lat: 37.8044, lng: -122.2711 },
+      'minneapolis': { lat: 44.9778, lng: -93.2650 },
+      'tulsa': { lat: 36.1540, lng: -95.9928 },
+      'tampa': { lat: 27.9506, lng: -82.4572 },
+      'arlington': { lat: 32.7357, lng: -97.1081 },
+      'new orleans': { lat: 29.9511, lng: -90.0715 }
+    };
+
+    const normalizedLocation = location.toLowerCase().trim();
+    const coords = mockLocations[normalizedLocation];
+    
+    console.log('Mock geocoding for:', location, '->', coords);
+    
+    return coords || null;
   };
 
   // Toast function (simplified)
@@ -118,6 +227,380 @@ document.head.appendChild(style);
     success: (message) => console.log('Success:', message),
     error: (message) => console.error('Error:', message),
     info: (message) => console.info('Info:', message)
+  };
+
+  // Custom hooks implementation
+
+  // useGoogleMaps hook
+  const useGoogleMaps = () => {
+    const [mapError, setMapError] = useState(null);
+    const mapRef = useRef(null);
+    const mapInstanceRef = useRef(null);
+    const markersRef = useRef([]);
+    const circleRef = useRef(null);
+    const mapLoadedRef = useRef(false);
+    const scriptLoadedRef = useRef(false);
+
+    // Check if Google Maps is already available
+    const isGoogleMapsAvailable = useCallback(() => {
+      return window.google && window.google.maps && window.google.maps.Map;
+    }, []);
+
+    // Check if there's an existing Google Maps instance on this page
+    const hasExistingGoogleMaps = useCallback(() => {
+      return document.querySelector('script[src*="maps.googleapis.com"]') !== null;
+    }, []);
+
+    // Initialize Google Map
+    const initializeMap = useCallback(() => {
+      if (!mapRef.current || mapInstanceRef.current || !isGoogleMapsAvailable()) return;
+
+      try {
+        const map = new window.google.maps.Map(mapRef.current, {
+          zoom: 7,
+          center: { lat: 31.9686, lng: -99.9018 }, // Center of Texas
+          mapTypeControl: false,
+          streetViewControl: false,
+          fullscreenControl: false,
+          zoomControl: true,
+          styles: [
+            {
+              featureType: 'poi',
+              elementType: 'labels',
+              stylers: [{ visibility: 'off' }]
+            }
+          ]
+        });
+
+        mapInstanceRef.current = map;
+        mapLoadedRef.current = true;
+        setMapError(null);
+        
+        console.log('Google Maps initialized successfully');
+      } catch (error) {
+        console.error('Failed to initialize map:', error);
+        setMapError('Failed to load map. Please check if ad blockers are interfering.');
+      }
+    }, [isGoogleMapsAvailable]);
+
+    // Clear existing markers and circle
+    const clearMapElements = useCallback(() => {
+      markersRef.current.forEach(marker => marker.setMap(null));
+      markersRef.current = [];
+      
+      if (circleRef.current) {
+        circleRef.current.setMap(null);
+        circleRef.current = null;
+      }
+    }, []);
+
+    // Add office markers to map (for initial load)
+    const addOfficeMarkersToMap = useCallback((offices) => {
+      if (!mapInstanceRef.current || !isGoogleMapsAvailable()) return;
+
+      clearMapElements();
+
+      try {
+        // Add office markers
+        offices.forEach((office) => {
+          const marker = new window.google.maps.Marker({
+            position: { lat: office.lat, lng: office.lng },
+            map: mapInstanceRef.current,
+            title: office.name,
+            icon: {
+              url: 'https://cdn.prod.website-files.com/67eb9b3bbf63235c4d69b63e/67f1849f85b2f6cd4969a4b2_pin.png',
+              scaledSize: new window.google.maps.Size(32, 32),
+            },
+          });
+
+          const infoWindow = new window.google.maps.InfoWindow({
+            content: `
+              <div style="padding: 8px;">
+                <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 4px;">${office.name}</h3>
+                <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 2px;">${office.address}</p>
+                <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 4px;">${office.city}, ${office.state} ${office.zip}</p>
+                ${office.phone ? `<p style="font-size: 0.875rem; color: #2563eb; margin-bottom: 12px;">${office.phone}</p>` : ''}
+                <div>
+                  <a href="/office/${office.id}" style="display: inline-flex; align-items: center; padding: 6px 12px; background-color: #2563eb; color: white; font-size: 0.875rem; border-radius: 4px; text-decoration: none; transition: background-color 0.15s;" 
+                     onmouseover="this.style.backgroundColor='#1d4ed8'" 
+                     onmouseout="this.style.backgroundColor='#2563eb'">
+                    Details
+                  </a>
+                </div>
+              </div>
+            `,
+          });
+
+          marker.addListener('click', () => {
+            infoWindow.open(mapInstanceRef.current, marker);
+          });
+
+          markersRef.current.push(marker);
+        });
+
+        // Fit map bounds to show all offices with reasonable zoom
+        if (offices.length > 0) {
+          const bounds = new window.google.maps.LatLngBounds();
+          offices.forEach(office => {
+            bounds.extend({ lat: office.lat, lng: office.lng });
+          });
+          mapInstanceRef.current.fitBounds(bounds);
+          
+          // Set maximum zoom level to keep reasonable view
+          const listener = window.google.maps.event.addListener(mapInstanceRef.current, 'bounds_changed', () => {
+            if (mapInstanceRef.current.getZoom() > 12) {
+              mapInstanceRef.current.setZoom(12);
+            }
+            window.google.maps.event.removeListener(listener);
+          });
+        }
+      } catch (error) {
+        console.error('Error adding markers to map:', error);
+      }
+    }, [clearMapElements, isGoogleMapsAvailable]);
+
+    // Add markers to map (for search results)
+    const addMarkersToMap = useCallback((offices, center, currentRadius) => {
+      if (!mapInstanceRef.current || !isGoogleMapsAvailable()) return;
+
+      clearMapElements();
+
+      try {
+        // Add radius circle
+        const circle = new window.google.maps.Circle({
+          strokeColor: '#3B82F6',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#3B82F6',
+          fillOpacity: 0.15,
+          map: mapInstanceRef.current,
+          center: center,
+          radius: currentRadius * 1609.34, // Convert miles to meters
+        });
+        circleRef.current = circle;
+
+        // Add center marker
+        new window.google.maps.Marker({
+          position: center,
+          map: mapInstanceRef.current,
+          title: 'Search Center',
+          icon: {
+            url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="10" r="8" fill="#EF4444" stroke="white" stroke-width="2"/>
+              </svg>
+            `),
+            scaledSize: new window.google.maps.Size(20, 20),
+          },
+        });
+
+        // Add office markers
+        offices.forEach((office) => {
+          const marker = new window.google.maps.Marker({
+            position: { lat: office.lat, lng: office.lng },
+            map: mapInstanceRef.current,
+            title: office.name,
+            icon: {
+              url: 'https://cdn.prod.website-files.com/67eb9b3bbf63235c4d69b63e/67f1849f85b2f6cd4969a4b2_pin.png',
+              scaledSize: new window.google.maps.Size(32, 32),
+            },
+          });
+
+          const infoWindow = new window.google.maps.InfoWindow({
+            content: `
+              <div style="padding: 8px;">
+                <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 4px;">${office.name}</h3>
+                <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 2px;">${office.address}</p>
+                <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 4px;">${office.city}, ${office.state} ${office.zip}</p>
+                ${office.phone ? `<p style="font-size: 0.875rem; color: #2563eb; margin-bottom: 12px;">${office.phone}</p>` : ''}
+                <div>
+                  <a href="/office/${office.id}" style="display: inline-flex; align-items: center; padding: 6px 12px; background-color: #2563eb; color: white; font-size: 0.875rem; border-radius: 4px; text-decoration: none; transition: background-color 0.15s;" 
+                     onmouseover="this.style.backgroundColor='#1d4ed8'" 
+                     onmouseout="this.style.backgroundColor='#2563eb'">
+                    Details
+                  </a>
+                </div>
+              </div>
+            `,
+          });
+
+          marker.addListener('click', () => {
+            infoWindow.open(mapInstanceRef.current, marker);
+          });
+
+          markersRef.current.push(marker);
+        });
+
+        // Fit map bounds to show all markers with reasonable zoom
+        if (offices.length > 0) {
+          const bounds = new window.google.maps.LatLngBounds();
+          bounds.extend(center);
+          offices.forEach(office => {
+            bounds.extend({ lat: office.lat, lng: office.lng });
+          });
+          mapInstanceRef.current.fitBounds(bounds);
+          
+          // Set maximum zoom level to keep reasonable view
+          const listener = window.google.maps.event.addListener(mapInstanceRef.current, 'bounds_changed', () => {
+            if (mapInstanceRef.current.getZoom() > 12) {
+              mapInstanceRef.current.setZoom(12);
+            }
+            window.google.maps.event.removeListener(listener);
+          });
+        }
+      } catch (error) {
+        console.error('Error updating map markers:', error);
+      }
+    }, [clearMapElements, isGoogleMapsAvailable]);
+
+    // Load Google Maps script with conflict prevention
+    useEffect(() => {
+      // First, check if Google Maps is already available
+      if (isGoogleMapsAvailable()) {
+        console.log('Google Maps already loaded, initializing map');
+        initializeMap();
+        return;
+      }
+
+      // Check if we already tried to load the script
+      if (mapLoadedRef.current || scriptLoadedRef.current) return;
+
+      // Check if there's already a Google Maps script loading
+      if (hasExistingGoogleMaps() && !window.googleMapsLoaded) {
+        console.log('Google Maps script already exists, waiting for it to load');
+        
+        // Wait for existing script to load
+        const checkInterval = setInterval(() => {
+          if (isGoogleMapsAvailable()) {
+            clearInterval(checkInterval);
+            initializeMap();
+          }
+        }, 100);
+
+        // Timeout after 10 seconds
+        setTimeout(() => {
+          clearInterval(checkInterval);
+          if (!isGoogleMapsAvailable()) {
+            setMapError('Google Maps failed to load within timeout period.');
+          }
+        }, 10000);
+        
+        return;
+      }
+
+      // Only load if there's no existing Google Maps
+      if (!hasExistingGoogleMaps()) {
+        scriptLoadedRef.current = true;
+
+        // Create unique callback function name to avoid conflicts
+        const uniqueCallback = `googleMapsCallback_${Date.now()}`;
+        
+        window[uniqueCallback] = () => {
+          console.log('Google Maps callback triggered');
+          window.googleMapsLoaded = true;
+          initializeMap();
+        };
+
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBaTFTW_OSfqCt93_P7rcjlXhU1RInOkj0&libraries=geometry&loading=async&callback=${uniqueCallback}`;
+        script.async = true;
+        script.defer = true;
+        script.id = 'google-maps-office-locator';
+        script.onerror = () => {
+          console.error('Failed to load Google Maps script');
+          setMapError('Failed to load Google Maps. This might be due to an ad blocker or network issue.');
+          scriptLoadedRef.current = false;
+        };
+        
+        document.head.appendChild(script);
+
+        return () => {
+          // Cleanup - but be careful not to remove existing scripts
+          const ourScript = document.getElementById('google-maps-office-locator');
+          if (ourScript && ourScript.parentNode) {
+            ourScript.parentNode.removeChild(ourScript);
+          }
+          if (window[uniqueCallback]) {
+            delete window[uniqueCallback];
+          }
+        };
+      }
+    }, [initializeMap, isGoogleMapsAvailable, hasExistingGoogleMaps]);
+
+    return {
+      mapRef,
+      mapInstanceRef,
+      mapError,
+      addOfficeMarkersToMap,
+      addMarkersToMap
+    };
+  };
+
+  // useOfficeSearch hook
+  const useOfficeSearch = (offices) => {
+    const [filteredOffices, setFilteredOffices] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [searchCenter, setSearchCenter] = useState(null);
+    const [currentRadius, setCurrentRadius] = useState(0);
+
+    const handleSearch = async ({ location, radius }, onMapUpdate) => {
+      setIsLoading(true);
+      setCurrentRadius(radius);
+      
+      try {
+        console.log('Searching for location:', location, 'with radius:', radius);
+        
+        const coordinates = await geocodeLocation(location);
+        console.log('Geocoded coordinates:', coordinates);
+        
+        if (!coordinates) {
+          toast.error('Location not found. Please try a different address or ZIP code.');
+          setFilteredOffices([]);
+          return;
+        }
+
+        setSearchCenter(coordinates);
+
+        // Filter offices within radius
+        const nearbyOffices = offices.filter(office => {
+          const distance = calculateDistance(
+            coordinates.lat,
+            coordinates.lng,
+            office.lat,
+            office.lng
+          );
+          return distance <= radius;
+        });
+
+        console.log('Found', nearbyOffices.length, 'offices within', radius, 'miles');
+        setFilteredOffices(nearbyOffices);
+
+        // Update map if callback provided
+        if (onMapUpdate) {
+          onMapUpdate(nearbyOffices, coordinates, radius);
+        }
+
+        if (nearbyOffices.length === 0) {
+          toast.info(`No offices found within ${radius} miles of ${location}.`);
+        } else {
+          toast.success(`Found ${nearbyOffices.length} office${nearbyOffices.length === 1 ? '' : 's'} near ${location}.`);
+        }
+      } catch (error) {
+        console.error('Search error:', error);
+        toast.error('An error occurred while searching. Please try again.');
+        setFilteredOffices([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    return {
+      filteredOffices,
+      isLoading,
+      searchCenter,
+      currentRadius,
+      handleSearch
+    };
   };
 
   // SearchPanel Component
@@ -249,292 +732,29 @@ document.head.appendChild(style);
   // Main OfficeLocator Component
   const OfficeLocator = () => {
     const [offices] = useState(officesData);
-    const [filteredOffices, setFilteredOffices] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [searchCenter, setSearchCenter] = useState(null);
-    const [currentRadius, setCurrentRadius] = useState(0);
-    const [mapError, setMapError] = useState(null);
-    const mapRef = useRef(null);
-    const mapInstanceRef = useRef(null);
-    const markersRef = useRef([]);
-    const circleRef = useRef(null);
-    const mapLoadedRef = useRef(false);
+    const { mapRef, mapInstanceRef, mapError, addOfficeMarkersToMap, addMarkersToMap } = useGoogleMaps();
+    const { filteredOffices, isLoading, currentRadius, handleSearch } = useOfficeSearch(offices);
 
-    const initializeMap = useCallback(() => {
-      if (!mapRef.current || mapInstanceRef.current || !window.google) return;
-
-      try {
-        const map = new window.google.maps.Map(mapRef.current, {
-          zoom: 7,
-          center: { lat: 31.9686, lng: -99.9018 },
-          mapTypeControl: false,
-          streetViewControl: false,
-          fullscreenControl: false,
-          zoomControl: true,
-          styles: [
-            {
-              featureType: 'poi',
-              elementType: 'labels',
-              stylers: [{ visibility: 'off' }]
-            }
-          ]
-        });
-
-        mapInstanceRef.current = map;
-        mapLoadedRef.current = true;
-        setMapError(null);
-        
-        addOfficeMarkersToMap(offices);
-      } catch (error) {
-        console.error('Failed to initialize map:', error);
-        setMapError('Failed to load map. Please check if ad blockers are interfering.');
-      }
-    }, [offices]);
-
+    // Add all office markers when map initializes
     useEffect(() => {
-      if (window.google && window.google.maps) {
-        initializeMap();
-        return;
+      if (mapInstanceRef.current) {
+        addOfficeMarkersToMap(offices);
       }
+    }, [mapInstanceRef.current, offices, addOfficeMarkersToMap]);
 
-      if (mapLoadedRef.current) return;
-
-      window.googleMapsCallback = initializeMap;
-
-      const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBaTFTW_OSfqCt93_P7rcjlXhU1RInOkj0&libraries=geometry&loading=async&callback=googleMapsCallback`;
-      script.async = true;
-      script.defer = true;
-      script.onerror = () => {
-        console.error('Failed to load Google Maps script');
-        setMapError('Failed to load Google Maps. This might be due to an ad blocker or network issue.');
-      };
-      
-      document.head.appendChild(script);
-
-      return () => {
-        const existingScript = document.querySelector(`script[src*="maps.googleapis.com"]`);
-        if (existingScript) {
-          document.head.removeChild(existingScript);
-        }
-        if (window.googleMapsCallback) {
-          delete window.googleMapsCallback;
-        }
-      };
-    }, [initializeMap]);
-
-    const clearMapElements = useCallback(() => {
-      markersRef.current.forEach(marker => marker.setMap(null));
-      markersRef.current = [];
-      
-      if (circleRef.current) {
-        circleRef.current.setMap(null);
-        circleRef.current = null;
-      }
-    }, []);
-
-    const addOfficeMarkersToMap = useCallback((offices) => {
-      if (!mapInstanceRef.current || !window.google) return;
-
-      clearMapElements();
-
-      try {
-        offices.forEach((office) => {
-          const marker = new window.google.maps.Marker({
-            position: { lat: office.lat, lng: office.lng },
-            map: mapInstanceRef.current,
-            title: office.name,
-            icon: {
-              url: 'https://cdn.prod.website-files.com/67eb9b3bbf63235c4d69b63e/67f1849f85b2f6cd4969a4b2_pin.png',
-              scaledSize: new window.google.maps.Size(32, 32),
-            },
-          });
-
-          const infoWindow = new window.google.maps.InfoWindow({
-            content: `
-              <div style="padding: 8px;">
-                <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 4px;">${office.name}</h3>
-                <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 2px;">${office.address}</p>
-                <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 4px;">${office.city}, ${office.state} ${office.zip}</p>
-                ${office.phone ? `<p style="font-size: 0.875rem; color: #2563eb; margin-bottom: 12px;">${office.phone}</p>` : ''}
-                <div>
-                  <a href="/office/${office.id}" style="display: inline-flex; align-items: center; padding: 6px 12px; background-color: #2563eb; color: white; font-size: 0.875rem; border-radius: 4px; text-decoration: none; transition: background-color 0.15s;" 
-                     onmouseover="this.style.backgroundColor='#1d4ed8'" 
-                     onmouseout="this.style.backgroundColor='#2563eb'">
-                    Details
-                  </a>
-                </div>
-              </div>
-            `,
-          });
-
-          marker.addListener('click', () => {
-            infoWindow.open(mapInstanceRef.current, marker);
-          });
-
-          markersRef.current.push(marker);
-        });
-
-        if (offices.length > 0) {
-          const bounds = new window.google.maps.LatLngBounds();
-          offices.forEach(office => {
-            bounds.extend({ lat: office.lat, lng: office.lng });
-          });
-          mapInstanceRef.current.fitBounds(bounds);
-          
-          const listener = window.google.maps.event.addListener(mapInstanceRef.current, 'bounds_changed', () => {
-            if (mapInstanceRef.current.getZoom() > 12) {
-              mapInstanceRef.current.setZoom(12);
-            }
-            window.google.maps.event.removeListener(listener);
-          });
-        }
-      } catch (error) {
-        console.error('Error adding markers to map:', error);
-      }
-    }, [clearMapElements]);
-
-    const addMarkersToMap = useCallback((offices, center) => {
-      if (!mapInstanceRef.current || !window.google) return;
-
-      clearMapElements();
-
-      try {
-        const circle = new window.google.maps.Circle({
-          strokeColor: '#3B82F6',
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-          fillColor: '#3B82F6',
-          fillOpacity: 0.15,
-          map: mapInstanceRef.current,
-          center: center,
-          radius: currentRadius * 1609.34,
-        });
-        circleRef.current = circle;
-
-        new window.google.maps.Marker({
-          position: center,
-          map: mapInstanceRef.current,
-          title: 'Search Center',
-          icon: {
-            url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="10" cy="10" r="8" fill="#EF4444" stroke="white" stroke-width="2"/>
-              </svg>
-            `),
-            scaledSize: new window.google.maps.Size(20, 20),
-          },
-        });
-
-        offices.forEach((office) => {
-          const marker = new window.google.maps.Marker({
-            position: { lat: office.lat, lng: office.lng },
-            map: mapInstanceRef.current,
-            title: office.name,
-            icon: {
-              url: 'https://cdn.prod.website-files.com/67eb9b3bbf63235c4d69b63e/67f1849f85b2f6cd4969a4b2_pin.png',
-              scaledSize: new window.google.maps.Size(32, 32),
-            },
-          });
-
-          const infoWindow = new window.google.maps.InfoWindow({
-            content: `
-              <div style="padding: 8px;">
-                <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 4px;">${office.name}</h3>
-                <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 2px;">${office.address}</p>
-                <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 4px;">${office.city}, ${office.state} ${office.zip}</p>
-                ${office.phone ? `<p style="font-size: 0.875rem; color: #2563eb; margin-bottom: 12px;">${office.phone}</p>` : ''}
-                <div>
-                  <a href="/office/${office.id}" style="display: inline-flex; align-items: center; padding: 6px 12px; background-color: #2563eb; color: white; font-size: 0.875rem; border-radius: 4px; text-decoration: none; transition: background-color 0.15s;" 
-                     onmouseover="this.style.backgroundColor='#1d4ed8'" 
-                     onmouseout="this.style.backgroundColor='#2563eb'">
-                    Details
-                  </a>
-                </div>
-              </div>
-            `,
-          });
-
-          marker.addListener('click', () => {
-            infoWindow.open(mapInstanceRef.current, marker);
-          });
-
-          markersRef.current.push(marker);
-        });
-
-        if (offices.length > 0) {
-          const bounds = new window.google.maps.LatLngBounds();
-          bounds.extend(center);
-          offices.forEach(office => {
-            bounds.extend({ lat: office.lat, lng: office.lng });
-          });
-          mapInstanceRef.current.fitBounds(bounds);
-          
-          const listener = window.google.maps.event.addListener(mapInstanceRef.current, 'bounds_changed', () => {
-            if (mapInstanceRef.current.getZoom() > 12) {
-              mapInstanceRef.current.setZoom(12);
-            }
-            window.google.maps.event.removeListener(listener);
-          });
-        }
-      } catch (error) {
-        console.error('Error updating map markers:', error);
-      }
-    }, [clearMapElements, currentRadius]);
-
-    const handleSearch = async ({ location, radius }) => {
-      setIsLoading(true);
-      setCurrentRadius(radius);
-      
-      try {
-        console.log('Searching for location:', location, 'with radius:', radius);
-        
-        const coordinates = await geocodeLocation(location);
-        console.log('Geocoded coordinates:', coordinates);
-        
-        if (!coordinates) {
-          toast.error('Location not found. Please try a different address or ZIP code.');
-          setFilteredOffices([]);
-          return;
-        }
-
-        setSearchCenter(coordinates);
-
-        const nearbyOffices = offices.filter(office => {
-          const distance = calculateDistance(
-            coordinates.lat,
-            coordinates.lng,
-            office.lat,
-            office.lng
-          );
-          return distance <= radius;
-        });
-
-        console.log('Found', nearbyOffices.length, 'offices within', radius, 'miles');
-        setFilteredOffices(nearbyOffices);
-
+    // Handle search with map update
+    const onSearch = (searchParams) => {
+      handleSearch(searchParams, (nearbyOffices, center, radius) => {
         if (mapInstanceRef.current) {
-          addMarkersToMap(nearbyOffices, coordinates);
+          addMarkersToMap(nearbyOffices, center, radius);
         }
-
-        if (nearbyOffices.length === 0) {
-          toast.info(`No offices found within ${radius} miles of ${location}.`);
-        } else {
-          toast.success(`Found ${nearbyOffices.length} office${nearbyOffices.length === 1 ? '' : 's'} near ${location}.`);
-        }
-      } catch (error) {
-        console.error('Search error:', error);
-        toast.error('An error occurred while searching. Please try again.');
-        setFilteredOffices([]);
-      } finally {
-        setIsLoading(false);
-      }
+      });
     };
 
     return e('div', { className: 'max-w-7xl mx-auto' },
       e('div', { className: 'grid grid-cols-1 lg:grid-cols-3 gap-6' },
         e('div', { className: 'lg:col-span-1' },
-          e(SearchPanel, { onSearch: handleSearch, isLoading }),
+          e(SearchPanel, { onSearch: onSearch, isLoading }),
           e(OfficeList, { offices: filteredOffices })
         ),
         e('div', { className: 'lg:col-span-2' },
