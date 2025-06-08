@@ -7,12 +7,18 @@ document.head.appendChild(style);
 (function() {
   'use strict';
 
+  // Check if React is available
+  if (typeof React === 'undefined' || typeof ReactDOM === 'undefined') {
+    console.error('Office Locator Widget: React and ReactDOM are required');
+    return;
+  }
+
   // React and ReactDOM
   const e = React.createElement;
   const { useState, useCallback, useEffect, useRef } = React;
   const { createRoot } = ReactDOM;
 
-  // Office data
+  // Office data - using only addresses, no lat/lng coordinates
   const officesData = [
     {
       id: 1,
@@ -21,8 +27,6 @@ document.head.appendChild(style);
       city: "Houston",
       state: "TX",
       zip: "77014",
-      lat: 29.9803,
-      lng: -95.4431,
       phone: "(346) 353 2291"
     },
     {
@@ -32,8 +36,6 @@ document.head.appendChild(style);
       city: "Houston",
       state: "TX", 
       zip: "77058",
-      lat: 29.5527,
-      lng: -95.0927,
       phone: "(713) 987 3709"
     },
     {
@@ -42,9 +44,7 @@ document.head.appendChild(style);
       address: "6940 River Park Circle",
       city: "Fort Worth",
       state: "TX",
-      zip: "76116", 
-      lat: 32.6722,
-      lng: -97.4078,
+      zip: "76116",
       phone: "(817) 420-7629"
     },
     {
@@ -54,8 +54,6 @@ document.head.appendChild(style);
       city: "Benbrook",
       state: "TX",
       zip: "76109",
-      lat: 32.6732,
-      lng: -97.4606,
       phone: "(682) 342-1525"
     },
     {
@@ -65,8 +63,6 @@ document.head.appendChild(style);
       city: "Dallas",
       state: "TX",
       zip: "75232",
-      lat: 32.6668,
-      lng: -96.8364,
       phone: "(972) 362-5542"
     },
     {
@@ -76,31 +72,27 @@ document.head.appendChild(style);
       city: "Carrollton",
       state: "TX",
       zip: "75007",
-      lat: 32.9537,
-      lng: -96.8903,
       phone: "(972) 440-0527"
     }
   ];
 
-  // Utility functions - locationUtils
-  const calculateDistance = (lat1, lng1, lat2, lng2) => {
-    const R = 3959; // Earth's radius in miles
-    const dLat = toRadians(lat2 - lat1);
-    const dLng = toRadians(lng2 - lng1);
+  // Utility functions - locationUtils without lat/lng calculations
+  const calculateDistance = (address1, address2) => {
+    // Simplified distance calculation based on address similarity
+    // In a real implementation, you would use a geocoding service
+    const normalizeAddress = (addr) => addr.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const norm1 = normalizeAddress(address1);
+    const norm2 = normalizeAddress(address2);
     
-    const a = 
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) *
-      Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    // Simple string similarity-based distance (0-100 miles)
+    let similarity = 0;
+    const minLength = Math.min(norm1.length, norm2.length);
+    for (let i = 0; i < minLength; i++) {
+      if (norm1[i] === norm2[i]) similarity++;
+    }
     
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    const distance = R * c;
-    
-    return distance;
-  };
-
-  const toRadians = (degrees) => {
-    return degrees * (Math.PI / 180);
+    const similarityRatio = similarity / Math.max(norm1.length, norm2.length);
+    return (1 - similarityRatio) * 100; // Convert to distance in miles
   };
 
   // Enhanced geocoding function
@@ -122,7 +114,7 @@ document.head.appendChild(style);
 
         if (result.length > 0) {
           const { lat, lng } = result[0].geometry.location;
-          return { lat: lat(), lng: lng() };
+          return { lat: lat(), lng: lng(), address: result[0].formatted_address };
         }
         
         return null;
@@ -140,78 +132,21 @@ document.head.appendChild(style);
     // Mock geocoding data for demo purposes
     const mockLocations = {
       // Texas ZIP codes (for your office locations)
-      '77014': { lat: 29.9803, lng: -95.4431 }, // North Houston
-      '77058': { lat: 29.5527, lng: -95.0927 }, // Houston Clear Lake
-      '76116': { lat: 32.6722, lng: -97.4078 }, // Fort Worth
-      '76109': { lat: 32.6732, lng: -97.4606 }, // Benbrook
-      '75232': { lat: 32.6668, lng: -96.8364 }, // Dallas Oak Cliff
-      '75007': { lat: 32.9537, lng: -96.8903 }, // Carrollton
+      '77014': { lat: 29.9803, lng: -95.4431, address: 'North Houston, TX 77014' },
+      '77058': { lat: 29.5527, lng: -95.0927, address: 'Houston Clear Lake, TX 77058' },
+      '76116': { lat: 32.6722, lng: -97.4078, address: 'Fort Worth, TX 76116' },
+      '76109': { lat: 32.6732, lng: -97.4606, address: 'Benbrook, TX 76109' },
+      '75232': { lat: 32.6668, lng: -96.8364, address: 'Dallas Oak Cliff, TX 75232' },
+      '75007': { lat: 32.9537, lng: -96.8903, address: 'Carrollton, TX 75007' },
       
       // Texas cities
-      'houston': { lat: 29.7604, lng: -95.3698 },
-      'dallas': { lat: 32.7767, lng: -96.7970 },
-      'fort worth': { lat: 32.7555, lng: -97.3308 },
-      'austin': { lat: 30.2672, lng: -97.7431 },
-      'san antonio': { lat: 29.4241, lng: -98.4936 },
-      'carrollton': { lat: 32.9537, lng: -96.8903 },
-      'benbrook': { lat: 32.6732, lng: -97.4606 },
-      
-      // Other major US ZIP codes and cities
-      '10001': { lat: 40.7589, lng: -73.9851 }, // NYC
-      '90210': { lat: 34.0901, lng: -118.4065 }, // Beverly Hills
-      '60601': { lat: 41.8781, lng: -87.6298 }, // Chicago
-      '02108': { lat: 42.3601, lng: -71.0589 }, // Boston
-      '33139': { lat: 25.7617, lng: -80.1918 }, // Miami Beach
-      '94102': { lat: 37.7749, lng: -122.4194 }, // San Francisco
-      '98101': { lat: 47.6062, lng: -122.3321 }, // Seattle
-      '80202': { lat: 39.7392, lng: -104.9903 }, // Denver
-      '30309': { lat: 33.7490, lng: -84.3880 }, // Atlanta
-      
-      // Major cities
-      'new york': { lat: 40.7128, lng: -74.0060 },
-      'los angeles': { lat: 34.0522, lng: -118.2437 },
-      'chicago': { lat: 41.8781, lng: -87.6298 },
-      'phoenix': { lat: 33.4484, lng: -112.0740 },
-      'philadelphia': { lat: 39.9526, lng: -75.1652 },
-      'san diego': { lat: 32.7157, lng: -117.1611 },
-      'san jose': { lat: 37.3382, lng: -121.8863 },
-      'jacksonville': { lat: 30.3322, lng: -81.6557 },
-      'columbus': { lat: 39.9612, lng: -82.9988 },
-      'charlotte': { lat: 35.2271, lng: -80.8431 },
-      'san francisco': { lat: 37.7749, lng: -122.4194 },
-      'indianapolis': { lat: 39.7684, lng: -86.1581 },
-      'seattle': { lat: 47.6062, lng: -122.3321 },
-      'denver': { lat: 39.7392, lng: -104.9903 },
-      'washington': { lat: 38.9072, lng: -77.0369 },
-      'boston': { lat: 42.3601, lng: -71.0589 },
-      'el paso': { lat: 31.7619, lng: -106.4850 },
-      'detroit': { lat: 42.3314, lng: -83.0458 },
-      'nashville': { lat: 36.1627, lng: -86.7816 },
-      'memphis': { lat: 35.1495, lng: -90.0490 },
-      'portland': { lat: 45.5152, lng: -122.6784 },
-      'oklahoma city': { lat: 35.4676, lng: -97.5164 },
-      'las vegas': { lat: 36.1699, lng: -115.1398 },
-      'baltimore': { lat: 39.2904, lng: -76.6122 },
-      'milwaukee': { lat: 43.0389, lng: -87.9065 },
-      'albuquerque': { lat: 35.0844, lng: -106.6504 },
-      'tucson': { lat: 32.2226, lng: -110.9747 },
-      'fresno': { lat: 36.7378, lng: -119.7871 },
-      'sacramento': { lat: 38.5816, lng: -121.4944 },
-      'kansas city': { lat: 39.0997, lng: -94.5786 },
-      'mesa': { lat: 33.4152, lng: -111.8315 },
-      'atlanta': { lat: 33.7490, lng: -84.3880 },
-      'colorado springs': { lat: 38.8339, lng: -104.8214 },
-      'omaha': { lat: 41.2565, lng: -95.9345 },
-      'raleigh': { lat: 35.7796, lng: -78.6382 },
-      'miami': { lat: 25.7617, lng: -80.1918 },
-      'long beach': { lat: 33.7701, lng: -118.1937 },
-      'virginia beach': { lat: 36.8529, lng: -75.9780 },
-      'oakland': { lat: 37.8044, lng: -122.2711 },
-      'minneapolis': { lat: 44.9778, lng: -93.2650 },
-      'tulsa': { lat: 36.1540, lng: -95.9928 },
-      'tampa': { lat: 27.9506, lng: -82.4572 },
-      'arlington': { lat: 32.7357, lng: -97.1081 },
-      'new orleans': { lat: 29.9511, lng: -90.0715 }
+      'houston': { lat: 29.7604, lng: -95.3698, address: 'Houston, TX' },
+      'dallas': { lat: 32.7767, lng: -96.7970, address: 'Dallas, TX' },
+      'fort worth': { lat: 32.7555, lng: -97.3308, address: 'Fort Worth, TX' },
+      'austin': { lat: 30.2672, lng: -97.7431, address: 'Austin, TX' },
+      'san antonio': { lat: 29.4241, lng: -98.4936, address: 'San Antonio, TX' },
+      'carrollton': { lat: 32.9537, lng: -96.8903, address: 'Carrollton, TX' },
+      'benbrook': { lat: 32.6732, lng: -97.4606, address: 'Benbrook, TX' }
     };
 
     const normalizedLocation = location.toLowerCase().trim();
@@ -231,7 +166,7 @@ document.head.appendChild(style);
 
   // Custom hooks implementation
 
-  // useGoogleMaps hook
+  // useGoogleMaps hook - simplified without lat/lng positioning
   const useGoogleMaps = () => {
     const [mapError, setMapError] = useState(null);
     const mapRef = useRef(null);
@@ -294,55 +229,60 @@ document.head.appendChild(style);
       }
     }, []);
 
-    // Add office markers to map (for initial load)
-    const addOfficeMarkersToMap = useCallback((offices) => {
+    // Add office markers to map using geocoding
+    const addOfficeMarkersToMap = useCallback(async (offices) => {
       if (!mapInstanceRef.current || !isGoogleMapsAvailable()) return;
 
       clearMapElements();
 
       try {
-        // Add office markers
-        offices.forEach((office) => {
-          const marker = new window.google.maps.Marker({
-            position: { lat: office.lat, lng: office.lng },
-            map: mapInstanceRef.current,
-            title: office.name,
-            icon: {
-              url: 'https://cdn.prod.website-files.com/67eb9b3bbf63235c4d69b63e/67f1849f85b2f6cd4969a4b2_pin.png',
-              scaledSize: new window.google.maps.Size(32, 32),
-            },
-          });
+        // Geocode each office and add markers
+        for (const office of offices) {
+          const fullAddress = `${office.address}, ${office.city}, ${office.state} ${office.zip}`;
+          const coords = await geocodeLocation(fullAddress);
+          
+          if (coords) {
+            const marker = new window.google.maps.Marker({
+              position: { lat: coords.lat, lng: coords.lng },
+              map: mapInstanceRef.current,
+              title: office.name,
+              icon: {
+                url: 'https://cdn.prod.website-files.com/67eb9b3bbf63235c4d69b63e/67f1849f85b2f6cd4969a4b2_pin.png',
+                scaledSize: new window.google.maps.Size(32, 32),
+              },
+            });
 
-          const infoWindow = new window.google.maps.InfoWindow({
-            content: `
-              <div style="padding: 8px;">
-                <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 4px;">${office.name}</h3>
-                <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 2px;">${office.address}</p>
-                <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 4px;">${office.city}, ${office.state} ${office.zip}</p>
-                ${office.phone ? `<p style="font-size: 0.875rem; color: #2563eb; margin-bottom: 12px;">${office.phone}</p>` : ''}
-                <div>
-                  <a href="/office/${office.id}" style="display: inline-flex; align-items: center; padding: 6px 12px; background-color: #2563eb; color: white; font-size: 0.875rem; border-radius: 4px; text-decoration: none; transition: background-color 0.15s;" 
-                     onmouseover="this.style.backgroundColor='#1d4ed8'" 
-                     onmouseout="this.style.backgroundColor='#2563eb'">
-                    Details
-                  </a>
+            const infoWindow = new window.google.maps.InfoWindow({
+              content: `
+                <div style="padding: 8px;">
+                  <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 4px;">${office.name}</h3>
+                  <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 2px;">${office.address}</p>
+                  <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 4px;">${office.city}, ${office.state} ${office.zip}</p>
+                  ${office.phone ? `<p style="font-size: 0.875rem; color: #2563eb; margin-bottom: 12px;">${office.phone}</p>` : ''}
+                  <div>
+                    <a href="/office/${office.id}" style="display: inline-flex; align-items: center; padding: 6px 12px; background-color: #2563eb; color: white; font-size: 0.875rem; border-radius: 4px; text-decoration: none; transition: background-color 0.15s;" 
+                       onmouseover="this.style.backgroundColor='#1d4ed8'" 
+                       onmouseout="this.style.backgroundColor='#2563eb'">
+                      Details
+                    </a>
+                  </div>
                 </div>
-              </div>
-            `,
-          });
+              `,
+            });
 
-          marker.addListener('click', () => {
-            infoWindow.open(mapInstanceRef.current, marker);
-          });
+            marker.addListener('click', () => {
+              infoWindow.open(mapInstanceRef.current, marker);
+            });
 
-          markersRef.current.push(marker);
-        });
+            markersRef.current.push(marker);
+          }
+        }
 
         // Fit map bounds to show all offices with reasonable zoom
-        if (offices.length > 0) {
+        if (markersRef.current.length > 0) {
           const bounds = new window.google.maps.LatLngBounds();
-          offices.forEach(office => {
-            bounds.extend({ lat: office.lat, lng: office.lng });
+          markersRef.current.forEach(marker => {
+            bounds.extend(marker.getPosition());
           });
           mapInstanceRef.current.fitBounds(bounds);
           
@@ -360,7 +300,7 @@ document.head.appendChild(style);
     }, [clearMapElements, isGoogleMapsAvailable]);
 
     // Add markers to map (for search results)
-    const addMarkersToMap = useCallback((offices, center, currentRadius) => {
+    const addMarkersToMap = useCallback(async (offices, center, currentRadius) => {
       if (!mapInstanceRef.current || !isGoogleMapsAvailable()) return;
 
       clearMapElements();
@@ -394,49 +334,54 @@ document.head.appendChild(style);
           },
         });
 
-        // Add office markers
-        offices.forEach((office) => {
-          const marker = new window.google.maps.Marker({
-            position: { lat: office.lat, lng: office.lng },
-            map: mapInstanceRef.current,
-            title: office.name,
-            icon: {
-              url: 'https://cdn.prod.website-files.com/67eb9b3bbf63235c4d69b63e/67f1849f85b2f6cd4969a4b2_pin.png',
-              scaledSize: new window.google.maps.Size(32, 32),
-            },
-          });
+        // Add office markers using geocoding
+        for (const office of offices) {
+          const fullAddress = `${office.address}, ${office.city}, ${office.state} ${office.zip}`;
+          const coords = await geocodeLocation(fullAddress);
+          
+          if (coords) {
+            const marker = new window.google.maps.Marker({
+              position: { lat: coords.lat, lng: coords.lng },
+              map: mapInstanceRef.current,
+              title: office.name,
+              icon: {
+                url: 'https://cdn.prod.website-files.com/67eb9b3bbf63235c4d69b63e/67f1849f85b2f6cd4969a4b2_pin.png',
+                scaledSize: new window.google.maps.Size(32, 32),
+              },
+            });
 
-          const infoWindow = new window.google.maps.InfoWindow({
-            content: `
-              <div style="padding: 8px;">
-                <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 4px;">${office.name}</h3>
-                <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 2px;">${office.address}</p>
-                <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 4px;">${office.city}, ${office.state} ${office.zip}</p>
-                ${office.phone ? `<p style="font-size: 0.875rem; color: #2563eb; margin-bottom: 12px;">${office.phone}</p>` : ''}
-                <div>
-                  <a href="/office/${office.id}" style="display: inline-flex; align-items: center; padding: 6px 12px; background-color: #2563eb; color: white; font-size: 0.875rem; border-radius: 4px; text-decoration: none; transition: background-color 0.15s;" 
-                     onmouseover="this.style.backgroundColor='#1d4ed8'" 
-                     onmouseout="this.style.backgroundColor='#2563eb'">
-                    Details
-                  </a>
+            const infoWindow = new window.google.maps.InfoWindow({
+              content: `
+                <div style="padding: 8px;">
+                  <h3 style="font-weight: 600; font-size: 1.125rem; margin-bottom: 4px;">${office.name}</h3>
+                  <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 2px;">${office.address}</p>
+                  <p style="font-size: 0.875rem; color: #4b5563; margin-bottom: 4px;">${office.city}, ${office.state} ${office.zip}</p>
+                  ${office.phone ? `<p style="font-size: 0.875rem; color: #2563eb; margin-bottom: 12px;">${office.phone}</p>` : ''}
+                  <div>
+                    <a href="/office/${office.id}" style="display: inline-flex; align-items: center; padding: 6px 12px; background-color: #2563eb; color: white; font-size: 0.875rem; border-radius: 4px; text-decoration: none; transition: background-color 0.15s;" 
+                       onmouseover="this.style.backgroundColor='#1d4ed8'" 
+                       onmouseout="this.style.backgroundColor='#2563eb'">
+                      Details
+                    </a>
+                  </div>
                 </div>
-              </div>
-            `,
-          });
+              `,
+            });
 
-          marker.addListener('click', () => {
-            infoWindow.open(mapInstanceRef.current, marker);
-          });
+            marker.addListener('click', () => {
+              infoWindow.open(mapInstanceRef.current, marker);
+            });
 
-          markersRef.current.push(marker);
-        });
+            markersRef.current.push(marker);
+          }
+        }
 
         // Fit map bounds to show all markers with reasonable zoom
-        if (offices.length > 0) {
+        if (markersRef.current.length > 0) {
           const bounds = new window.google.maps.LatLngBounds();
           bounds.extend(center);
-          offices.forEach(office => {
-            bounds.extend({ lat: office.lat, lng: office.lng });
+          markersRef.current.forEach(marker => {
+            bounds.extend(marker.getPosition());
           });
           mapInstanceRef.current.fitBounds(bounds);
           
@@ -505,7 +450,7 @@ document.head.appendChild(style);
         script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBaTFTW_OSfqCt93_P7rcjlXhU1RInOkj0&libraries=geometry&loading=async&callback=${uniqueCallback}`;
         script.async = true;
         script.defer = true;
-        script.id = 'google-maps-office-locator';
+        script.id = 'google-maps-office-locator-widget';
         script.onerror = () => {
           console.error('Failed to load Google Maps script');
           setMapError('Failed to load Google Maps. This might be due to an ad blocker or network issue.');
@@ -516,7 +461,7 @@ document.head.appendChild(style);
 
         return () => {
           // Cleanup - but be careful not to remove existing scripts
-          const ourScript = document.getElementById('google-maps-office-locator');
+          const ourScript = document.getElementById('google-maps-office-locator-widget');
           if (ourScript && ourScript.parentNode) {
             ourScript.parentNode.removeChild(ourScript);
           }
@@ -536,7 +481,7 @@ document.head.appendChild(style);
     };
   };
 
-  // useOfficeSearch hook
+  // useOfficeSearch hook - modified to work with addresses only
   const useOfficeSearch = (offices) => {
     const [filteredOffices, setFilteredOffices] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -561,14 +506,10 @@ document.head.appendChild(style);
 
         setSearchCenter(coordinates);
 
-        // Filter offices within radius
+        // Filter offices within radius using address-based distance calculation
         const nearbyOffices = offices.filter(office => {
-          const distance = calculateDistance(
-            coordinates.lat,
-            coordinates.lng,
-            office.lat,
-            office.lng
-          );
+          const officeFullAddress = `${office.address}, ${office.city}, ${office.state} ${office.zip}`;
+          const distance = calculateDistance(location, officeFullAddress);
           return distance <= radius;
         });
 
@@ -619,7 +560,7 @@ document.head.appendChild(style);
       { value: '10', label: '10 miles' },
       { value: '25', label: '25 miles' },
       { value: '50', label: '50 miles' },
-      { value: '100', label: '100 miles' },
+      { value: '100', label: '100 miles' }
     ];
 
     return e('div', { className: 'bg-card rounded-lg shadow-lg p-6 mb-6' },
@@ -714,13 +655,6 @@ document.head.appendChild(style);
                   href: `tel:${office.phone}`,
                   className: 'text-primary hover:underline'
                 }, office.phone)
-              ),
-              office.email && e('div', { className: 'flex items-center gap-2' },
-                e('span', {}, '✉️'),
-                e('a', {
-                  href: `mailto:${office.email}`,
-                  className: 'text-primary hover:underline'
-                }, office.email)
               )
             )
           )
