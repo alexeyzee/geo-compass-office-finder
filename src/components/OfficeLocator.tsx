@@ -47,8 +47,8 @@ const OfficeLocator = () => {
     if (!mapRef.current || mapInstanceRef.current || !window.google) return;
 
     const map = new window.google.maps.Map(mapRef.current, {
-      zoom: 4,
-      center: { lat: 39.8283, lng: -98.5795 }, // Center of US
+      zoom: 7,
+      center: { lat: 31.9686, lng: -99.9018 }, // Center of Texas
       mapTypeControl: false,
       streetViewControl: false,
       fullscreenControl: false,
@@ -62,7 +62,10 @@ const OfficeLocator = () => {
     });
 
     mapInstanceRef.current = map;
-  }, []);
+    
+    // Add all office markers when map initializes
+    addOfficeMarkersToMap(offices);
+  }, [offices]);
 
   // Load Google Maps script
   useEffect(() => {
@@ -100,7 +103,58 @@ const OfficeLocator = () => {
     }
   }, []);
 
-  // Add markers to map
+  // Add office markers to map (for initial load)
+  const addOfficeMarkersToMap = useCallback((offices: Office[]) => {
+    if (!mapInstanceRef.current || !window.google) return;
+
+    clearMapElements();
+
+    // Add office markers
+    offices.forEach((office) => {
+      const marker = new window.google.maps.Marker({
+        position: { lat: office.lat, lng: office.lng },
+        map: mapInstanceRef.current,
+        title: office.name,
+        icon: {
+          url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#3B82F6" stroke="white" stroke-width="2"/>
+              <circle cx="12" cy="9" r="2.5" fill="white"/>
+            </svg>
+          `),
+          scaledSize: new window.google.maps.Size(24, 24),
+        },
+      });
+
+      const infoWindow = new window.google.maps.InfoWindow({
+        content: `
+          <div class="p-2">
+            <h3 class="font-semibold text-lg">${office.name}</h3>
+            <p class="text-sm text-gray-600">${office.address}</p>
+            <p class="text-sm text-gray-600">${office.city}, ${office.state} ${office.zip}</p>
+            ${office.phone ? `<p class="text-sm text-blue-600 mt-1">${office.phone}</p>` : ''}
+          </div>
+        `,
+      });
+
+      marker.addListener('click', () => {
+        infoWindow.open(mapInstanceRef.current, marker);
+      });
+
+      markersRef.current.push(marker);
+    });
+
+    // Fit map bounds to show all offices
+    if (offices.length > 0) {
+      const bounds = new window.google.maps.LatLngBounds();
+      offices.forEach(office => {
+        bounds.extend({ lat: office.lat, lng: office.lng });
+      });
+      mapInstanceRef.current.fitBounds(bounds);
+    }
+  }, [clearMapElements]);
+
+  // Add markers to map (for search results)
   const addMarkersToMap = useCallback((offices: Office[], center: { lat: number; lng: number }) => {
     if (!mapInstanceRef.current || !window.google) return;
 
