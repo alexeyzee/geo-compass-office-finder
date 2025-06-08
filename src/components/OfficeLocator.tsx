@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { toast } from 'sonner';
 import SearchPanel from './SearchPanel';
@@ -30,6 +29,7 @@ declare global {
     google: typeof google;
     googleMapsCallback: () => void;
     googleMapsLoaded: boolean;
+    [key: string]: any; // Allow dynamic properties
   }
 }
 
@@ -50,6 +50,11 @@ const OfficeLocator = () => {
   // Check if Google Maps is already available
   const isGoogleMapsAvailable = useCallback(() => {
     return window.google && window.google.maps && window.google.maps.Map;
+  }, []);
+
+  // Check if there's an existing Google Maps instance on this page
+  const hasExistingGoogleMaps = useCallback(() => {
+    return document.querySelector('script[src*="maps.googleapis.com"]') !== null;
   }, []);
 
   // Initialize Google Map
@@ -99,8 +104,7 @@ const OfficeLocator = () => {
     if (mapLoadedRef.current || scriptLoadedRef.current) return;
 
     // Check if there's already a Google Maps script loading
-    const existingScript = document.querySelector('script[src*="maps.googleapis.com"]');
-    if (existingScript && !window.googleMapsLoaded) {
+    if (hasExistingGoogleMaps() && !window.googleMapsLoaded) {
       console.log('Google Maps script already exists, waiting for it to load');
       
       // Wait for existing script to load
@@ -122,41 +126,44 @@ const OfficeLocator = () => {
       return;
     }
 
-    scriptLoadedRef.current = true;
+    // Only load if there's no existing Google Maps
+    if (!hasExistingGoogleMaps()) {
+      scriptLoadedRef.current = true;
 
-    // Create unique callback function name to avoid conflicts
-    const uniqueCallback = `googleMapsCallback_${Date.now()}`;
-    
-    window[uniqueCallback as any] = () => {
-      console.log('Google Maps callback triggered');
-      window.googleMapsLoaded = true;
-      initializeMap();
-    };
+      // Create unique callback function name to avoid conflicts
+      const uniqueCallback = `googleMapsCallback_${Date.now()}`;
+      
+      (window as any)[uniqueCallback] = () => {
+        console.log('Google Maps callback triggered');
+        window.googleMapsLoaded = true;
+        initializeMap();
+      };
 
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBaTFTW_OSfqCt93_P7rcjlXhU1RInOkj0&libraries=geometry&loading=async&callback=${uniqueCallback}`;
-    script.async = true;
-    script.defer = true;
-    script.id = 'google-maps-office-locator';
-    script.onerror = () => {
-      console.error('Failed to load Google Maps script');
-      setMapError('Failed to load Google Maps. This might be due to an ad blocker or network issue.');
-      scriptLoadedRef.current = false;
-    };
-    
-    document.head.appendChild(script);
+      const script = document.createElement('script');
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBaTFTW_OSfqCt93_P7rcjlXhU1RInOkj0&libraries=geometry&loading=async&callback=${uniqueCallback}`;
+      script.async = true;
+      script.defer = true;
+      script.id = 'google-maps-office-locator';
+      script.onerror = () => {
+        console.error('Failed to load Google Maps script');
+        setMapError('Failed to load Google Maps. This might be due to an ad blocker or network issue.');
+        scriptLoadedRef.current = false;
+      };
+      
+      document.head.appendChild(script);
 
-    return () => {
-      // Cleanup - but be careful not to remove existing scripts
-      const ourScript = document.getElementById('google-maps-office-locator');
-      if (ourScript && ourScript.parentNode) {
-        ourScript.parentNode.removeChild(ourScript);
-      }
-      if (window[uniqueCallback as any]) {
-        delete window[uniqueCallback as any];
-      }
-    };
-  }, [initializeMap, isGoogleMapsAvailable]);
+      return () => {
+        // Cleanup - but be careful not to remove existing scripts
+        const ourScript = document.getElementById('google-maps-office-locator');
+        if (ourScript && ourScript.parentNode) {
+          ourScript.parentNode.removeChild(ourScript);
+        }
+        if ((window as any)[uniqueCallback]) {
+          delete (window as any)[uniqueCallback];
+        }
+      };
+    }
+  }, [initializeMap, isGoogleMapsAvailable, hasExistingGoogleMaps]);
 
   // Clear existing markers and circle
   const clearMapElements = useCallback(() => {
