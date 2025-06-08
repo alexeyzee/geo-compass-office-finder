@@ -1,4 +1,3 @@
-
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { toast } from 'sonner';
 import SearchPanel from './SearchPanel';
@@ -144,13 +143,21 @@ const OfficeLocator = () => {
       markersRef.current.push(marker);
     });
 
-    // Fit map bounds to show all offices
+    // Fit map bounds to show all offices with reasonable zoom
     if (offices.length > 0) {
       const bounds = new window.google.maps.LatLngBounds();
       offices.forEach(office => {
         bounds.extend({ lat: office.lat, lng: office.lng });
       });
       mapInstanceRef.current.fitBounds(bounds);
+      
+      // Set maximum zoom level to keep reasonable view
+      const listener = window.google.maps.event.addListener(mapInstanceRef.current, 'bounds_changed', () => {
+        if (mapInstanceRef.current!.getZoom()! > 12) {
+          mapInstanceRef.current!.setZoom(12);
+        }
+        window.google.maps.event.removeListener(listener);
+      });
     }
   }, [clearMapElements]);
 
@@ -223,7 +230,7 @@ const OfficeLocator = () => {
       markersRef.current.push(marker);
     });
 
-    // Fit map bounds to show all markers
+    // Fit map bounds to show all markers with reasonable zoom
     if (offices.length > 0) {
       const bounds = new window.google.maps.LatLngBounds();
       bounds.extend(center);
@@ -231,6 +238,14 @@ const OfficeLocator = () => {
         bounds.extend({ lat: office.lat, lng: office.lng });
       });
       mapInstanceRef.current.fitBounds(bounds);
+      
+      // Set maximum zoom level to keep reasonable view
+      const listener = window.google.maps.event.addListener(mapInstanceRef.current, 'bounds_changed', () => {
+        if (mapInstanceRef.current!.getZoom()! > 12) {
+          mapInstanceRef.current!.setZoom(12);
+        }
+        window.google.maps.event.removeListener(listener);
+      });
     }
   }, [clearMapElements, currentRadius]);
 
