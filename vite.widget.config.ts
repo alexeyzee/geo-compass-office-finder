@@ -20,10 +20,12 @@ export default defineConfig({
     rollupOptions: {
       output: {
         inlineDynamicImports: true,
+        assetFileNames: 'office-locator-widget.[ext]'
       }
     },
     outDir: 'widget-dist',
     emptyOutDir: true,
+    cssCodeSplit: false,
   },
   define: {
     'process.env.NODE_ENV': '"production"'
