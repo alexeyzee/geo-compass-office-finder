@@ -22,20 +22,9 @@ interface OfficeListProps {
 }
 
 const OfficeList = ({ offices }: OfficeListProps) => {
+  // Don't render anything if there are no offices
   if (offices.length === 0) {
-    return (
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Building className="h-5 w-5 text-muted-foreground" />
-            Search Results
-          </CardTitle>
-          <CardDescription>
-            No offices found. Try searching with a location and radius.
-          </CardDescription>
-        </CardHeader>
-      </Card>
-    );
+    return null;
   }
 
   return (
