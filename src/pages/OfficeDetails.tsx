@@ -3,7 +3,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, MapPin, Phone, Mail } from 'lucide-react';
+import { ArrowLeft, MapPin, Phone } from 'lucide-react';
 import { officesData } from '@/data/offices';
 
 const OfficeDetails = () => {
@@ -65,21 +65,6 @@ const OfficeDetails = () => {
                     className="text-primary hover:underline"
                   >
                     {office.phone}
-                  </a>
-                </div>
-              </div>
-            )}
-
-            {office.email && (
-              <div className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-primary flex-shrink-0" />
-                <div>
-                  <p className="font-medium">Email</p>
-                  <a 
-                    href={`mailto:${office.email}`}
-                    className="text-primary hover:underline"
-                  >
-                    {office.email}
                   </a>
                 </div>
               </div>
