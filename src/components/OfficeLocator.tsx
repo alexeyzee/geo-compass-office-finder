@@ -1,23 +1,10 @@
-
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { toast } from 'sonner';
 import SearchPanel from './SearchPanel';
 import OfficeList from './OfficeList';
 import { officesData } from '@/data/offices';
+import { fetchOfficesFromWebflow, type Office } from '@/services/webflowService';
 import { calculateDistance, geocodeLocation } from '@/utils/locationUtils';
-
-interface Office {
-  id: number;
-  name: string;
-  address: string;
-  city: string;
-  state: string;
-  zip: string;
-  lat: number;
-  lng: number;
-  phone?: string;
-  email?: string;
-}
 
 interface SearchParams {
   location: string;
@@ -32,15 +19,36 @@ declare global {
 }
 
 const OfficeLocator = () => {
-  const [offices] = useState<Office[]>(officesData);
+  const [offices, setOffices] = useState<Office[]>([]);
   const [filteredOffices, setFilteredOffices] = useState<Office[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingOffices, setIsLoadingOffices] = useState(true);
   const [searchCenter, setSearchCenter] = useState<{ lat: number; lng: number } | null>(null);
   const [currentRadius, setCurrentRadius] = useState<number>(0);
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<google.maps.Map | null>(null);
   const markersRef = useRef<google.maps.Marker[]>([]);
   const circleRef = useRef<google.maps.Circle | null>(null);
+
+  // Load offices from Webflow on component mount
+  useEffect(() => {
+    const loadOffices = async () => {
+      try {
+        console.log('Loading offices from Webflow...');
+        const webflowOffices = await fetchOfficesFromWebflow();
+        setOffices(webflowOffices);
+        console.log('Loaded offices:', webflowOffices);
+      } catch (error) {
+        console.error('Failed to load offices from Webflow, falling back to local data:', error);
+        toast.error('Failed to load offices from CMS, using local data');
+        setOffices(officesData);
+      } finally {
+        setIsLoadingOffices(false);
+      }
+    };
+
+    loadOffices();
+  }, []);
 
   // Initialize Google Map
   const initializeMap = useCallback(() => {
@@ -233,6 +241,19 @@ const OfficeLocator = () => {
       setIsLoading(false);
     }
   };
+
+  if (isLoadingOffices) {
+    return (
+      <div className="max-w-7xl mx-auto">
+        <div className="flex items-center justify-center h-64">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
+            <p className="text-muted-foreground">Loading offices from CMS...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto">
