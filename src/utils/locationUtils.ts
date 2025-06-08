@@ -1,4 +1,3 @@
-
 // Haversine formula to calculate distance between two points on Earth
 export const calculateDistance = (lat1: number, lng1: number, lat2: number, lng2: number): number => {
   const R = 3959; // Earth's radius in miles
@@ -27,32 +26,43 @@ export const geocodeLocation = async (location: string): Promise<{ lat: number; 
   
   // Mock geocoding data for demo purposes
   const mockLocations: Record<string, { lat: number; lng: number }> = {
-    // ZIP codes
+    // Texas ZIP codes (for your office locations)
+    '77014': { lat: 29.9803, lng: -95.4431 }, // North Houston
+    '77058': { lat: 29.5527, lng: -95.0927 }, // Houston Clear Lake
+    '76116': { lat: 32.6722, lng: -97.4078 }, // Fort Worth
+    '76109': { lat: 32.6732, lng: -97.4606 }, // Benbrook
+    '75232': { lat: 32.6668, lng: -96.8364 }, // Dallas Oak Cliff
+    '75007': { lat: 32.9537, lng: -96.8903 }, // Carrollton
+    
+    // Texas cities
+    'houston': { lat: 29.7604, lng: -95.3698 },
+    'dallas': { lat: 32.7767, lng: -96.7970 },
+    'fort worth': { lat: 32.7555, lng: -97.3308 },
+    'austin': { lat: 30.2672, lng: -97.7431 },
+    'san antonio': { lat: 29.4241, lng: -98.4936 },
+    'carrollton': { lat: 32.9537, lng: -96.8903 },
+    'benbrook': { lat: 32.6732, lng: -97.4606 },
+    
+    // Other major US ZIP codes and cities
     '10001': { lat: 40.7589, lng: -73.9851 }, // NYC
     '90210': { lat: 34.0901, lng: -118.4065 }, // Beverly Hills
     '60601': { lat: 41.8781, lng: -87.6298 }, // Chicago
     '02108': { lat: 42.3601, lng: -71.0589 }, // Boston
     '33139': { lat: 25.7617, lng: -80.1918 }, // Miami Beach
     '94102': { lat: 37.7749, lng: -122.4194 }, // San Francisco
-    '73301': { lat: 30.2672, lng: -97.7431 }, // Austin
     '98101': { lat: 47.6062, lng: -122.3321 }, // Seattle
     '80202': { lat: 39.7392, lng: -104.9903 }, // Denver
     '30309': { lat: 33.7490, lng: -84.3880 }, // Atlanta
     
-    // Cities
+    // Major cities
     'new york': { lat: 40.7128, lng: -74.0060 },
     'los angeles': { lat: 34.0522, lng: -118.2437 },
     'chicago': { lat: 41.8781, lng: -87.6298 },
-    'houston': { lat: 29.7604, lng: -95.3698 },
     'phoenix': { lat: 33.4484, lng: -112.0740 },
     'philadelphia': { lat: 39.9526, lng: -75.1652 },
-    'san antonio': { lat: 29.4241, lng: -98.4936 },
     'san diego': { lat: 32.7157, lng: -117.1611 },
-    'dallas': { lat: 32.7767, lng: -96.7970 },
     'san jose': { lat: 37.3382, lng: -121.8863 },
-    'austin': { lat: 30.2672, lng: -97.7431 },
     'jacksonville': { lat: 30.3322, lng: -81.6557 },
-    'fort worth': { lat: 32.7555, lng: -97.3308 },
     'columbus': { lat: 39.9612, lng: -82.9988 },
     'charlotte': { lat: 35.2271, lng: -80.8431 },
     'san francisco': { lat: 37.7749, lng: -122.4194 },
