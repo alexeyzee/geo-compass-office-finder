@@ -34,12 +34,18 @@ document.head.appendChild(style);
 
     embedDivs.forEach((embedDiv, index) => {
       try {
-        const jsonText = embedDiv.textContent.trim();
+        let jsonText = embedDiv.textContent.trim();
         
         // Handle the comma at the end if it exists
-        const cleanJsonText = jsonText.replace(/,$/, '');
+        jsonText = jsonText.replace(/,$/, '');
         
-        const officeData = JSON.parse(cleanJsonText);
+        // Fix unquoted string values in the JSON
+        // This regex finds patterns like "id": value, and wraps the value in quotes if it's not already quoted
+        jsonText = jsonText.replace(/"id":\s*([^",\s]+)/g, '"id": "$1"');
+        
+        console.log('Cleaned JSON text:', jsonText);
+        
+        const officeData = JSON.parse(jsonText);
         
         // Convert the data to match our expected format
         offices.push({
