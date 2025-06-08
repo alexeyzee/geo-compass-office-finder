@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { toast } from 'sonner';
 import SearchPanel from './SearchPanel';
@@ -41,6 +42,28 @@ const OfficeLocator = () => {
   const markersRef = useRef<google.maps.Marker[]>([]);
   const circleRef = useRef<google.maps.Circle | null>(null);
 
+  // Initialize Google Map
+  const initializeMap = useCallback(() => {
+    if (!mapRef.current || mapInstanceRef.current || !window.google) return;
+
+    const map = new window.google.maps.Map(mapRef.current, {
+      zoom: 4,
+      center: { lat: 39.8283, lng: -98.5795 }, // Center of US
+      mapTypeControl: false,
+      streetViewControl: false,
+      fullscreenControl: false,
+      styles: [
+        {
+          featureType: 'poi',
+          elementType: 'labels',
+          stylers: [{ visibility: 'off' }]
+        }
+      ]
+    });
+
+    mapInstanceRef.current = map;
+  }, []);
+
   // Load Google Maps script
   useEffect(() => {
     if (window.google) {
@@ -65,28 +88,6 @@ const OfficeLocator = () => {
       }
     };
   }, [initializeMap]);
-
-  // Initialize Google Map
-  const initializeMap = useCallback(() => {
-    if (!mapRef.current || mapInstanceRef.current || !window.google) return;
-
-    const map = new window.google.maps.Map(mapRef.current, {
-      zoom: 4,
-      center: { lat: 39.8283, lng: -98.5795 }, // Center of US
-      mapTypeControl: false,
-      streetViewControl: false,
-      fullscreenControl: false,
-      styles: [
-        {
-          featureType: 'poi',
-          elementType: 'labels',
-          stylers: [{ visibility: 'off' }]
-        }
-      ]
-    });
-
-    mapInstanceRef.current = map;
-  }, []);
 
   // Clear existing markers and circle
   const clearMapElements = useCallback(() => {
