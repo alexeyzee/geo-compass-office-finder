@@ -1,4 +1,3 @@
-
 (function(){
 var css = ":root { --background: 0 0% 100%; --foreground: 222.2 84% 4.9%; --card: 0 0% 100%; --card-foreground: 222.2 84% 4.9%; --popover: 0 0% 100%; --popover-foreground: 222.2 84% 4.9%; --primary: 221.2 83.2% 53.3%; --primary-foreground: 210 40% 98%; --secondary: 210 40% 96%; --secondary-foreground: 222.2 84% 4.9%; --muted: 210 40% 96%; --muted-foreground: 215.4 16.3% 46.9%; --accent: 210 40% 96%; --accent-foreground: 222.2 84% 4.9%; --destructive: 0 62.8% 30.6%; --destructive-foreground: 210 40% 98%; --border: 214.3 31.8% 91.4%; --input: 214.3 31.8% 91.4%; --ring: 221.2 83.2% 53.3%; --chart-1: 12 76% 61%; --chart-2: 173 58% 39%; --chart-3: 197 37% 24%; --chart-4: 43 74% 66%; --chart-5: 27 87% 67%; --radius: 0.5rem; } *, ::before, ::after { box-sizing: border-box; border-width: 0; border-style: solid; border-color: #e5e7eb; } ::before, ::after { --tw-content: ''; } html, :host { line-height: 1.5; -webkit-text-size-adjust: 100%; -moz-tab-size: 4; tab-size: 4; font-family: ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; font-feature-settings: normal; font-variation-settings: normal; -webkit-tap-highlight-color: transparent; } body { margin: 0; line-height: inherit; } .container { width: 100%; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; } @media (min-width: 640px) { .container { max-width: 640px; } } @media (min-width: 768px) { .container { max-width: 768px; } } @media (min-width: 1024px) { .container { max-width: 1024px; } } @media (min-width: 1280px) { .container { max-width: 1280px; } } @media (min-width: 1536px) { .container { max-width: 1536px; } } .flex { display: flex; } .grid { display: grid; } .hidden { display: none; } .absolute { position: absolute; } .relative { position: relative; } .inset-0 { top: 0; right: 0; bottom: 0; left: 0; } .top-4 { top: 1rem; } .left-4 { left: 1rem; } .right-4 { right: 1rem; } .z-10 { z-index: 10; } .z-50 { z-index: 50; } .h-full { height: 100%; } .h-10 { height: 2.5rem; } .h-96 { height: 24rem; } .h-\\[500px\\] { height: 500px; } .w-full { width: 100%; } .w-80 { width: 20rem; } .w-32 { width: 8rem; } .max-w-xs { max-width: 20rem; } .max-w-sm { max-width: 24rem; } .max-h-80 { max-height: 20rem; } .flex-1 { flex: 1 1 0%; } .flex-col { flex-direction: column; } .items-center { align-items: center; } .justify-center { justify-content: center; } .justify-between { justify-content: space-between; } .gap-2 { gap: 0.5rem; } .gap-3 { gap: 0.75rem; } .gap-4 { gap: 1rem; } .rounded-lg { border-radius: 0.5rem; } .rounded-md { border-radius: 0.375rem; } .rounded-full { border-radius: 9999px; } .border { border-width: 1px; } .border-gray-200 { border-color: #e5e7eb; } .border-gray-300 { border-color: #d1d5db; } .bg-white { background-color: #ffffff; } .bg-gray-50 { background-color: #f9fafb; } .bg-gray-100 { background-color: #f3f4f6; } .bg-blue-600 { background-color: #2563eb; } .bg-blue-50 { background-color: #eff6ff; } .bg-red-500 { background-color: #ef4444; } .p-3 { padding: 0.75rem; } .p-4 { padding: 1rem; } .p-6 { padding: 1.5rem; } .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; } .px-4 { padding-left: 1rem; padding-right: 1rem; } .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; } .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; } .mb-2 { margin-bottom: 0.5rem; } .mb-3 { margin-bottom: 0.75rem; } .mb-4 { margin-bottom: 1rem; } .mr-2 { margin-right: 0.5rem; } .text-sm { font-size: 0.875rem; line-height: 1.25rem; } .text-base { font-size: 1rem; line-height: 1.5rem; } .text-lg { font-size: 1.125rem; line-height: 1.75rem; } .text-xl { font-size: 1.25rem; line-height: 1.75rem; } .font-medium { font-weight: 500; } .font-semibold { font-weight: 600; } .font-bold { font-weight: 700; } .text-gray-600 { color: #4b5563; } .text-gray-700 { color: #374151; } .text-gray-800 { color: #1f2937; } .text-blue-600 { color: #2563eb; } .text-white { color: #ffffff; } .text-red-600 { color: #dc2626; } .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); } .shadow-md { box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); } .shadow-lg { box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); } .hover\\:bg-gray-50:hover { background-color: #f9fafb; } .hover\\:bg-blue-700:hover { background-color: #1d4ed8; } .focus\\:outline-none:focus { outline: 2px solid transparent; outline-offset: 2px; } .focus\\:ring-2:focus { --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color); --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color); box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000); } .focus\\:ring-blue-500:focus { --tw-ring-color: #3b82f6; } .transition { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; } .cursor-pointer { cursor: pointer; } .select-none { user-select: none; } .overflow-hidden { overflow: hidden; } .overflow-y-auto { overflow-y: auto; } .space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem; } .space-y-3 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.75rem; } .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } @media (min-width: 768px) { .md\\:flex-row { flex-direction: row; } .md\\:w-96 { width: 24rem; } }";
 var style = document.createElement('style');
@@ -142,31 +141,54 @@ document.head.appendChild(style);
     info: (message) => console.info('Info:', message)
   };
 
-  // Enhanced Google Maps availability check
+  // Enhanced Google Maps availability check with more thorough validation
   const isGoogleMapsFullyLoaded = () => {
     try {
-      return !!(typeof window !== 'undefined' && 
-               window.google && 
-               window.google.maps && 
-               window.google.maps.Map &&
-               window.google.maps.Marker &&
-               window.google.maps.Circle &&
-               window.google.maps.Geocoder &&
-               window.google.maps.InfoWindow &&
-               window.google.maps.LatLngBounds &&
-               window.google.maps.event &&
-               window.google.maps.event.addListener);
+      if (typeof window === 'undefined' || !window.google) {
+        console.log('Google Maps: window.google not available');
+        return false;
+      }
+      
+      if (!window.google.maps) {
+        console.log('Google Maps: window.google.maps not available');
+        return false;
+      }
+
+      // Check for essential classes and methods
+      const requiredClasses = [
+        'Map', 'Marker', 'Circle', 'Geocoder', 'InfoWindow', 'LatLngBounds'
+      ];
+
+      for (const className of requiredClasses) {
+        if (!window.google.maps[className]) {
+          console.log(`Google Maps: ${className} not available`);
+          return false;
+        }
+      }
+
+      // Check for event system
+      if (!window.google.maps.event || !window.google.maps.event.addListener) {
+        console.log('Google Maps: event system not available');
+        return false;
+      }
+
+      console.log('Google Maps is fully loaded and validated');
+      return true;
     } catch (error) {
       console.error('Error checking Google Maps availability:', error);
       return false;
     }
   };
 
-  // Wait for Google Maps to be fully loaded
-  const waitForGoogleMaps = (callback, maxAttempts = 50, attempt = 0) => {
+  // Wait for Google Maps to be fully loaded with better error handling
+  const waitForGoogleMaps = (callback, maxAttempts = 100, attempt = 0) => {
     if (isGoogleMapsFullyLoaded()) {
-      console.log('Google Maps is fully loaded');
-      callback();
+      console.log('Google Maps is ready, executing callback');
+      try {
+        callback();
+      } catch (error) {
+        console.error('Error executing Google Maps callback:', error);
+      }
       return;
     }
     
@@ -181,7 +203,7 @@ document.head.appendChild(style);
     }, 100);
   };
 
-  // useGoogleMaps hook with improved loading and error handling
+  // useGoogleMaps hook with improved conflict resolution
   const useGoogleMaps = () => {
     const [mapError, setMapError] = useState(null);
     const mapRef = useRef(null);
@@ -208,8 +230,10 @@ document.head.appendChild(style);
       }
 
       try {
-        console.log('Initializing Google Maps...');
-        const map = new window.google.maps.Map(mapRef.current, {
+        console.log('Initializing Google Maps instance...');
+        
+        // Create map with additional error handling
+        const mapOptions = {
           zoom: 7,
           center: { lat: 31.9686, lng: -99.9018 },
           mapTypeControl: false,
@@ -223,13 +247,23 @@ document.head.appendChild(style);
               stylers: [{ visibility: 'off' }]
             }
           ]
+        };
+
+        const map = new window.google.maps.Map(mapRef.current, mapOptions);
+
+        // Wait for map to be fully initialized
+        window.google.maps.event.addListenerOnce(map, 'idle', () => {
+          console.log('Google Maps fully initialized and ready');
+          mapInstanceRef.current = map;
+          mapLoadedRef.current = true;
+          setMapError(null);
         });
 
-        mapInstanceRef.current = map;
-        mapLoadedRef.current = true;
-        setMapError(null);
-        
-        console.log('Google Maps initialized successfully');
+        // Add error handling for map
+        window.google.maps.event.addListener(map, 'tilesloaded', () => {
+          console.log('Map tiles loaded successfully');
+        });
+
       } catch (error) {
         console.error('Failed to initialize map:', error);
         setMapError('Failed to load map. Please check if ad blockers are interfering.');
@@ -267,11 +301,20 @@ document.head.appendChild(style);
         if (coords) {
           mapInstanceRef.current.setCenter({ lat: coords.lat, lng: coords.lng });
           mapInstanceRef.current.setZoom(15);
+          
+          // Close any open info windows
+          markersRef.current.forEach(marker => {
+            if (marker.infoWindow) {
+              marker.infoWindow.close();
+            }
+          });
         }
       } catch (error) {
         console.error('Error centering map on office:', error);
       }
     }, []);
+
+    // ... keep existing code (addOfficeMarkersToMap and addMarkersToMap functions)
 
     const addOfficeMarkersToMap = useCallback(async (offices) => {
       if (!mapInstanceRef.current) {
@@ -335,8 +378,17 @@ document.head.appendChild(style);
                 `,
               });
 
+              // Store infoWindow reference on marker
+              marker.infoWindow = infoWindow;
+
               if (marker.addListener) {
                 marker.addListener('click', () => {
+                  // Close all other info windows
+                  markersRef.current.forEach(m => {
+                    if (m.infoWindow && m !== marker) {
+                      m.infoWindow.close();
+                    }
+                  });
                   infoWindow.open(mapInstanceRef.current, marker);
                 });
               }
@@ -461,8 +513,17 @@ document.head.appendChild(style);
                 `,
               });
 
+              // Store infoWindow reference on marker
+              marker.infoWindow = infoWindow;
+
               if (marker.addListener) {
                 marker.addListener('click', () => {
+                  // Close all other info windows
+                  markersRef.current.forEach(m => {
+                    if (m.infoWindow && m !== marker) {
+                      m.infoWindow.close();
+                    }
+                  });
                   infoWindow.open(mapInstanceRef.current, marker);
                 });
               }
@@ -496,6 +557,13 @@ document.head.appendChild(style);
     }, [clearMapElements]);
 
     useEffect(() => {
+      // Prevent loading if we're in a conflicting environment
+      if (window.initAllMaps && typeof window.initAllMaps === 'function') {
+        console.warn('Detected conflicting Google Maps initialization (initAllMaps). Avoiding script loading.');
+        setMapError('Map integration conflict detected. Please ensure only one Google Maps instance is loaded.');
+        return;
+      }
+
       if (isGoogleMapsFullyLoaded()) {
         console.log('Google Maps already loaded, initializing map');
         initializeMap();
@@ -504,7 +572,7 @@ document.head.appendChild(style);
 
       if (mapLoadedRef.current || scriptLoadedRef.current) return;
 
-      const uniqueCallback = `googleMapsCallback_${WIDGET_ID}`;
+      const uniqueCallback = `officeLocatorCallback_${WIDGET_ID}`;
       
       if (hasExistingGoogleMaps()) {
         console.log('Google Maps script already exists, waiting for it to load');
@@ -559,7 +627,8 @@ document.head.appendChild(style);
     };
   };
 
-  // useOfficeSearch hook with improved distance calculation
+  // ... keep existing code (useOfficeSearch, SearchPanel, OfficeList, OfficeLocator, OfficeLocatorWidget, and initialization functions)
+
   const useOfficeSearch = (offices) => {
     const [filteredOffices, setFilteredOffices] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -639,7 +708,6 @@ document.head.appendChild(style);
     };
   };
 
-  // Modern SearchPanel Component
   const SearchPanel = ({ onSearch, isLoading }) => {
     const [location, setLocation] = useState('');
     const [radius, setRadius] = useState('25');
@@ -659,24 +727,30 @@ document.head.appendChild(style);
     ];
 
     return e('div', { 
-      className: 'absolute top-4 left-4 z-10 bg-white rounded-lg shadow-lg p-4 w-80 md:w-96'
+      className: 'absolute top-6 left-6 z-10 bg-white rounded-xl shadow-xl p-6 w-96 border border-gray-100'
     },
-      e('form', { onSubmit: handleSubmit, className: 'flex flex-col md:flex-row gap-3' },
-        e('div', { className: 'flex-1' },
+      e('div', { className: 'mb-4' },
+        e('h2', { className: 'text-xl font-bold text-gray-800 mb-2' }, 'Find Nearby Offices'),
+        e('p', { className: 'text-sm text-gray-600' }, 'Enter your location to find offices near you')
+      ),
+      e('form', { onSubmit: handleSubmit, className: 'space-y-4' },
+        e('div', null,
+          e('label', { className: 'block text-sm font-medium text-gray-700 mb-2' }, 'Location'),
           e('input', {
             type: 'text',
-            placeholder: 'Enter a location',
+            placeholder: 'ZIP code, city, or address',
             value: location,
             onChange: (e) => setLocation(e.target.value),
-            className: 'w-full px-3 py-2 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500',
+            className: 'w-full px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent',
             disabled: isLoading
           })
         ),
-        e('div', { className: 'w-32' },
+        e('div', null,
+          e('label', { className: 'block text-sm font-medium text-gray-700 mb-2' }, 'Search Radius'),
           e('select', {
             value: radius,
             onChange: (e) => setRadius(e.target.value),
-            className: 'w-full px-3 py-2 border border-gray-300 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500',
+            className: 'w-full px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent',
             disabled: isLoading
           },
             radiusOptions.map(option =>
@@ -686,56 +760,55 @@ document.head.appendChild(style);
         ),
         e('button', {
           type: 'submit',
-          className: 'px-4 py-2 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition',
+          className: 'w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors',
           disabled: isLoading || !location.trim()
         },
-          isLoading ? 'Searching...' : 'Search'
+          isLoading ? 'Searching...' : 'Find Offices'
         )
       )
     );
   };
 
-  // Modern OfficeList Component with improved scrolling and click handling
   const OfficeList = ({ offices, onOfficeClick }) => {
     if (offices.length === 0) return null;
 
     return e('div', { 
-      className: 'absolute top-4 right-4 z-10 bg-white rounded-lg shadow-lg p-4 w-80 max-w-sm'
+      className: 'absolute top-6 right-6 z-10 bg-white rounded-xl shadow-xl p-6 w-96 border border-gray-100'
     },
-      e('div', { className: 'mb-3' },
-        e('h3', { className: 'text-lg font-semibold text-gray-800' }, 'Nearby Locations'),
+      e('div', { className: 'mb-4' },
+        e('h3', { className: 'text-xl font-bold text-gray-800' }, 'Nearby Locations'),
         e('p', { className: 'text-sm text-gray-600' }, `${offices.length} location${offices.length === 1 ? '' : 's'} found`)
       ),
-      e('div', { className: 'space-y-3 max-h-80 overflow-y-auto' },
+      e('div', { className: 'space-y-3 max-h-96 overflow-y-auto' },
         offices.map(office =>
           e('div', {
             key: office.id,
-            className: 'p-3 border border-gray-200 rounded-md hover:bg-gray-50 transition cursor-pointer',
+            className: 'p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition cursor-pointer group',
             onClick: () => onOfficeClick(office)
           },
-            e('div', { className: 'flex justify-between items-start mb-2' },
-              e('h4', { className: 'font-medium text-gray-800 text-sm truncate mr-2' }, office.name),
+            e('div', { className: 'flex justify-between items-start mb-3' },
+              e('h4', { className: 'font-semibold text-gray-800 text-base group-hover:text-blue-600 transition' }, office.name),
               office.distance !== undefined && e('span', { 
-                className: 'text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded-full'
+                className: 'text-sm font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full'
               }, `${office.distance}mi`)
             ),
-            e('div', { className: 'text-xs text-gray-600 space-y-1' },
-              e('p', { className: 'truncate' }, office.address),
-              e('p', { className: 'truncate' }, `${office.city}, ${office.state} ${office.zip}`),
-              office.phone && e('p', { className: 'text-blue-600' }, office.phone)
+            e('div', { className: 'text-sm text-gray-600 space-y-1 mb-3' },
+              e('p', null, office.address),
+              e('p', null, `${office.city}, ${office.state} ${office.zip}`),
+              office.phone && e('p', { className: 'text-blue-600 font-medium' }, office.phone)
             ),
-            e('div', { className: 'flex gap-2 mt-3' },
+            e('div', { className: 'flex gap-2' },
               e('a', {
                 href: office.officeUrl || `/office/${office.id}`,
                 target: '_blank',
-                className: 'text-xs bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 transition',
+                className: 'text-sm bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-medium',
                 rel: 'noopener noreferrer',
                 onClick: (e) => e.stopPropagation()
-              }, 'Details'),
+              }, 'View Details'),
               e('a', {
                 href: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${office.address}, ${office.city}, ${office.state} ${office.zip}`)}`,
                 target: '_blank',
-                className: 'text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-md hover:bg-gray-200 transition',
+                className: 'text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition font-medium',
                 rel: 'noopener noreferrer',
                 onClick: (e) => e.stopPropagation()
               }, 'Directions')
@@ -746,7 +819,6 @@ document.head.appendChild(style);
     );
   };
 
-  // Main OfficeLocator Component
   const OfficeLocator = () => {
     const [offices, setOffices] = useState([]);
     const { mapRef, mapInstanceRef, mapError, addOfficeMarkersToMap, addMarkersToMap, centerMapOnOffice } = useGoogleMaps();
@@ -775,14 +847,15 @@ document.head.appendChild(style);
       centerMapOnOffice(office);
     };
 
-    return e('div', { className: 'relative w-full h-[500px] rounded-lg overflow-hidden' },
+    return e('div', { className: 'relative w-full h-[600px] rounded-xl overflow-hidden shadow-lg' },
       e(SearchPanel, { onSearch: onSearch, isLoading }),
       e(OfficeList, { offices: filteredOffices, onOfficeClick: handleOfficeClick }),
       mapError ? 
         e('div', { className: 'w-full h-full flex items-center justify-center bg-gray-100' },
-          e('div', { className: 'text-center p-6' },
-            e('p', { className: 'text-red-600 font-medium mb-2' }, 'Map Loading Error'),
-            e('p', { className: 'text-sm text-gray-600 mb-4' }, mapError),
+          e('div', { className: 'text-center p-8 max-w-md' },
+            e('div', { className: 'text-red-500 text-4xl mb-4' }, '⚠️'),
+            e('p', { className: 'text-red-600 font-semibold text-lg mb-2' }, 'Map Loading Error'),
+            e('p', { className: 'text-gray-600 text-sm mb-4' }, mapError),
             e('p', { className: 'text-xs text-gray-500' }, 
               'Try disabling ad blockers or refreshing the page'
             )
@@ -791,12 +864,11 @@ document.head.appendChild(style);
         e('div', { 
           ref: mapRef, 
           id: 'map', 
-          className: 'w-full h-full'
+          className: 'w-full h-full bg-gray-100'
         })
     );
   };
 
-  // Main App Component
   const OfficeLocatorWidget = () => {
     console.log('OfficeLocatorWidget component rendering');
     
@@ -805,7 +877,6 @@ document.head.appendChild(style);
     );
   };
 
-  // Widget initialization function
   window.initOfficeLocator = function(containerId) {
     console.log('initOfficeLocator called with containerId:', containerId);
     
@@ -824,7 +895,6 @@ document.head.appendChild(style);
     }
   };
 
-  // Auto-initialize if a default container exists
   document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded, checking for default container');
     const defaultContainer = document.getElementById('office-locator-widget');
@@ -836,7 +906,6 @@ document.head.appendChild(style);
     }
   });
 
-  // Also try immediate initialization in case DOM is already loaded
   console.log('Checking for immediate initialization');
   const immediateContainer = document.getElementById('office-locator-widget');
   if (immediateContainer) {
