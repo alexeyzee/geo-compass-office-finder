@@ -24,6 +24,13 @@ interface SearchParams {
   radius: number;
 }
 
+// Extend Window interface to include google
+declare global {
+  interface Window {
+    google: typeof google;
+  }
+}
+
 const OfficeLocator = () => {
   const [offices] = useState<Office[]>(officesData);
   const [filteredOffices, setFilteredOffices] = useState<Office[]>([]);
@@ -37,9 +44,9 @@ const OfficeLocator = () => {
 
   // Initialize Google Map
   const initializeMap = useCallback(() => {
-    if (!mapRef.current || mapInstanceRef.current) return;
+    if (!mapRef.current || mapInstanceRef.current || !window.google) return;
 
-    const map = new google.maps.Map(mapRef.current, {
+    const map = new window.google.maps.Map(mapRef.current, {
       zoom: 4,
       center: { lat: 39.8283, lng: -98.5795 }, // Center of US
       mapTypeControl: false,
@@ -65,7 +72,7 @@ const OfficeLocator = () => {
     }
 
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=geometry`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBaTFTW_OSfqCt93_P7rcjlXhU1RInOkj0&libraries=geometry`;
     script.async = true;
     script.defer = true;
     script.onload = initializeMap;
@@ -95,12 +102,12 @@ const OfficeLocator = () => {
 
   // Add markers to map
   const addMarkersToMap = useCallback((offices: Office[], center: { lat: number; lng: number }) => {
-    if (!mapInstanceRef.current) return;
+    if (!mapInstanceRef.current || !window.google) return;
 
     clearMapElements();
 
     // Add radius circle
-    const circle = new google.maps.Circle({
+    const circle = new window.google.maps.Circle({
       strokeColor: '#3B82F6',
       strokeOpacity: 0.8,
       strokeWeight: 2,
@@ -113,7 +120,7 @@ const OfficeLocator = () => {
     circleRef.current = circle;
 
     // Add center marker
-    new google.maps.Marker({
+    new window.google.maps.Marker({
       position: center,
       map: mapInstanceRef.current,
       title: 'Search Center',
@@ -123,13 +130,13 @@ const OfficeLocator = () => {
             <circle cx="10" cy="10" r="8" fill="#EF4444" stroke="white" stroke-width="2"/>
           </svg>
         `),
-        scaledSize: new google.maps.Size(20, 20),
+        scaledSize: new window.google.maps.Size(20, 20),
       },
     });
 
     // Add office markers
     offices.forEach((office) => {
-      const marker = new google.maps.Marker({
+      const marker = new window.google.maps.Marker({
         position: { lat: office.lat, lng: office.lng },
         map: mapInstanceRef.current,
         title: office.name,
@@ -140,11 +147,11 @@ const OfficeLocator = () => {
               <circle cx="12" cy="9" r="2.5" fill="white"/>
             </svg>
           `),
-          scaledSize: new google.maps.Size(24, 24),
+          scaledSize: new window.google.maps.Size(24, 24),
         },
       });
 
-      const infoWindow = new google.maps.InfoWindow({
+      const infoWindow = new window.google.maps.InfoWindow({
         content: `
           <div class="p-2">
             <h3 class="font-semibold text-lg">${office.name}</h3>
@@ -164,7 +171,7 @@ const OfficeLocator = () => {
 
     // Fit map bounds to show all markers
     if (offices.length > 0) {
-      const bounds = new google.maps.LatLngBounds();
+      const bounds = new window.google.maps.LatLngBounds();
       bounds.extend(center);
       offices.forEach(office => {
         bounds.extend({ lat: office.lat, lng: office.lng });
