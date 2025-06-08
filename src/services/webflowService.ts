@@ -1,4 +1,3 @@
-
 const WEBFLOW_API_KEY = 'bc2c022b4536b1e1ce0a25301c7e8cd3a6d9f9ef24b6ed3bd760ecedcb23e69e';
 const WEBFLOW_BASE_URL = 'https://api.webflow.com';
 
@@ -35,8 +34,8 @@ export interface Office {
 }
 
 // You'll need to replace 'SITE_ID' and 'COLLECTION_ID' with your actual values
-const SITE_ID = 'YOUR_SITE_ID'; // Replace with your Webflow site ID
-const COLLECTION_ID = 'YOUR_COLLECTION_ID'; // Replace with your offices collection ID
+const SITE_ID = 'cpr-training-labs'; // Replace with your Webflow site ID
+const COLLECTION_ID = '67f1127b5b0383b05636c457'; // Replace with your offices collection ID
 
 export const fetchOfficesFromWebflow = async (): Promise<Office[]> => {
   try {
