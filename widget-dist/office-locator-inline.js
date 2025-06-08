@@ -1,4 +1,3 @@
-
 (function(){
 var css = ":root { --background: 0 0% 100%; --foreground: 222.2 84% 4.9%; --card: 0 0% 100%; --card-foreground: 222.2 84% 4.9%; --popover: 0 0% 100%; --popover-foreground: 222.2 84% 4.9%; --primary: 221.2 83.2% 53.3%; --primary-foreground: 210 40% 98%; --secondary: 210 40% 96%; --secondary-foreground: 222.2 84% 4.9%; --muted: 210 40% 96%; --muted-foreground: 215.4 16.3% 46.9%; --accent: 210 40% 96%; --accent-foreground: 222.2 84% 4.9%; --destructive: 0 62.8% 30.6%; --destructive-foreground: 210 40% 98%; --border: 214.3 31.8% 91.4%; --input: 214.3 31.8% 91.4%; --ring: 221.2 83.2% 53.3%; --chart-1: 12 76% 61%; --chart-2: 173 58% 39%; --chart-3: 197 37% 24%; --chart-4: 43 74% 66%; --chart-5: 27 87% 67%; --radius: 0.5rem; } *, ::before, ::after { box-sizing: border-box; border-width: 0; border-style: solid; border-color: #e5e7eb; } ::before, ::after { --tw-content: ''; } html, :host { line-height: 1.5; -webkit-text-size-adjust: 100%; -moz-tab-size: 4; tab-size: 4; font-family: ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; font-feature-settings: normal; font-variation-settings: normal; -webkit-tap-highlight-color: transparent; } body { margin: 0; line-height: inherit; } .min-h-screen { min-height: 100vh; } .bg-gradient-to-br { background-image: linear-gradient(to bottom right, var(--tw-gradient-stops)); } .from-blue-50 { --tw-gradient-from: #eff6ff var(--tw-gradient-from-position); --tw-gradient-to: rgb(239 246 255 / 0) var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); } .to-indigo-100 { --tw-gradient-to: #e0e7ff var(--tw-gradient-to-position); } .container { width: 100%; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; } @media (min-width: 640px) { .container { max-width: 640px; } } @media (min-width: 768px) { .container { max-width: 768px; } } @media (min-width: 1024px) { .container { max-width: 1024px; } } @media (min-width: 1280px) { .container { max-width: 1280px; } } @media (min-width: 1536px) { .container { max-width: 1536px; } } .mx-auto { margin-left: auto; margin-right: auto; } .px-4 { padding-left: 1rem; padding-right: 1rem; } .py-8 { padding-top: 2rem; padding-bottom: 2rem; } .text-center { text-align: center; } .mb-8 { margin-bottom: 2rem; } .text-4xl { font-size: 2.25rem; line-height: 2.5rem; } @media (min-width: 768px) { .md\\:text-5xl { font-size: 3rem; line-height: 1; } } .font-bold { font-weight: 700; } .text-foreground { color: hsl(var(--foreground)); } .mb-4 { margin-bottom: 1rem; } .text-lg { font-size: 1.125rem; line-height: 1.75rem; } .text-muted-foreground { color: hsl(var(--muted-foreground)); } .max-w-2xl { max-width: 42rem; } .max-w-7xl { max-width: 80rem; } .grid { display: grid; } .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); } @media (min-width: 1024px) { .lg\\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } } @media (min-width: 1024px) { .lg\\:col-span-1 { grid-column: span 1 / span 1; } } @media (min-width: 1024px) { .lg\\:col-span-2 { grid-column: span 2 / span 2; } } .gap-6 { gap: 1.5rem; } .bg-card { background-color: hsl(var(--card)); } .rounded-lg { border-radius: 0.5rem; } .shadow-lg { box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); } .overflow-hidden { overflow: hidden; } .h-\\[600px\\] { height: 600px; } .w-full { width: 100%; } .h-full { height: 100%; } .flex { display: flex; } .items-center { align-items: center; } .justify-center { justify-content: center; } .bg-gray-100 { background-color: #f3f4f6; } .p-6 { padding: 1.5rem; } .text-red-600 { color: #dc2626; } .font-medium { font-weight: 500; } .mb-2 { margin-bottom: 0.5rem; } .text-sm { font-size: 0.875rem; line-height: 1.25rem; } .text-gray-600 { color: #4b5563; } .text-xs { font-size: 0.75rem; line-height: 1rem; } .text-gray-500 { color: #6b7280; } .inline-flex { display: inline-flex; } .items-center { align-items: center; } .justify-center { justify-content: center; } .gap-2 { gap: 0.5rem; } .whitespace-nowrap { white-space: nowrap; } .rounded-md { border-radius: 0.375rem; } .font-medium { font-weight: 500; } .ring-offset-background { --tw-ring-offset-color: hsl(var(--background)); } .transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; } .focus-visible\\:outline-none:focus-visible { outline: 2px solid transparent; outline-offset: 2px; } .focus-visible\\:ring-2:focus-visible { --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color); --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color); box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000); } .disabled\\:pointer-events-none:disabled { pointer-events: none; } .disabled\\:opacity-50:disabled { opacity: 0.5; } .bg-primary { background-color: hsl(var(--primary)); } .text-primary-foreground { color: hsl(var(--primary-foreground)); } .hover\\:bg-primary\\/90:hover { background-color: hsl(var(--primary) / 0.9); } .h-10 { height: 2.5rem; } .px-4 { padding-left: 1rem; padding-right: 1rem; } .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; } .border { border-width: 1px; } .border-border { border-color: hsl(var(--border)); } .bg-card { background-color: hsl(var(--card)); } .text-card-foreground { color: hsl(var(--card-foreground)); } .shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); } .border-input { border-color: hsl(var(--input)); } .bg-background { background-color: hsl(var(--background)); } .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; } .text-base { font-size: 1rem; line-height: 1.5rem; } .placeholder\\:text-muted-foreground::placeholder { color: hsl(var(--muted-foreground)); } .focus-visible\\:ring-ring:focus-visible { --tw-ring-color: hsl(var(--ring)); } .select-none { user-select: none; } .text-sm { font-size: 0.875rem; line-height: 1.25rem; } .font-medium { font-weight: 500; } .leading-none { line-height: 1; } .space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem; } .space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem; } .mr-2 { margin-right: 0.5rem; } .mt-1 { margin-top: 0.25rem; } .mt-3 { margin-top: 0.75rem; } .p-2 { padding: 0.5rem; } .p-4 { padding: 1rem; } .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; } .py-1\\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; } .text-blue-600 { color: #2563eb; } .bg-blue-600 { background-color: #2563eb; } .hover\\:bg-blue-700:hover { background-color: #1d4ed8; } .text-white { color: #ffffff; } .max-h-96 { max-height: 24rem; } .overflow-y-auto { overflow-y: auto; } .border-border { border-color: hsl(var(--border)); } .hover\\:bg-accent\\/50:hover { background-color: hsl(var(--accent) / 0.5); } .flex-shrink-0 { flex-shrink: 0; } .text-primary { color: hsl(var(--primary)); } .hover\\:underline:hover { text-decoration-line: underline; } .animate-spin { animation: spin 1s linear infinite; } @keyframes spin { to { transform: rotate(360deg); } } .h-4 { height: 1rem; } .w-4 { width: 1rem; } .h-5 { height: 1.25rem; } .w-5 { width: 1.25rem; } .w-3 { width: 0.75rem; } .h-3 { height: 0.75rem; } .mr-1 { margin-right: 0.25rem; } .mt-0\\.5 { margin-top: 0.125rem; } .bg-secondary { background-color: hsl(var(--secondary)); } .text-secondary-foreground { color: hsl(var(--secondary-foreground)); } .px-2\\.5 { padding-left: 0.625rem; padding-right: 0.625rem; } .py-0\\.5 { padding-top: 0.125rem; padding-bottom: 0.125rem; } .border-input { border-color: hsl(var(--input)); } .hover\\:bg-accent:hover { background-color: hsl(var(--accent)); } .hover\\:text-accent-foreground:hover { color: hsl(var(--accent-foreground)); } .h-9 { height: 2.25rem; } .justify-between { justify-content: space-between; } .items-start { align-items: flex-start; }";
 var style = document.createElement('style');
@@ -40,9 +39,16 @@ document.head.appendChild(style);
         // Handle the comma at the end if it exists
         jsonText = jsonText.replace(/,$/, '');
         
-        // Fix unquoted string values in the JSON
-        // This regex finds patterns like "id": value, and wraps the value in quotes if it's not already quoted
+        // Fix unquoted string values in the JSON - handle various patterns
         jsonText = jsonText.replace(/"id":\s*([^",\s]+)/g, '"id": "$1"');
+        jsonText = jsonText.replace(/"name":\s*([^",\s][^"]*[^",\s])/g, '"name": "$1"');
+        jsonText = jsonText.replace(/"address":\s*([^",\s][^"]*[^",\s])/g, '"address": "$1"');
+        jsonText = jsonText.replace(/"city":\s*([^",\s][^"]*[^",\s])/g, '"city": "$1"');
+        jsonText = jsonText.replace(/"state":\s*([^",\s]+)/g, '"state": "$1"');
+        jsonText = jsonText.replace(/"zip":\s*([^",\s]+)/g, '"zip": "$1"');
+        jsonText = jsonText.replace(/"phone":\s*([^",\s][^"]*[^",\s])/g, '"phone": "$1"');
+        jsonText = jsonText.replace(/"email":\s*([^",\s][^"]*[^",\s])/g, '"email": "$1"');
+        jsonText = jsonText.replace(/"office-url":\s*([^",\s][^"]*[^",\s])/g, '"office-url": "$1"');
         
         console.log('Cleaned JSON text:', jsonText);
         
@@ -90,7 +96,7 @@ document.head.appendChild(style);
     return degrees * (Math.PI / 180);
   };
 
-  // Enhanced geocoding function with better error handling
+  // Enhanced geocoding function that relies only on Google Maps API
   const geocodeLocation = async (location) => {
     try {
       // Check if Google Maps is available and properly loaded
@@ -120,36 +126,14 @@ document.head.appendChild(style);
         }
         
         return null;
+      } else {
+        console.error('Google Maps Geocoding API not available');
+        return null;
       }
     } catch (error) {
-      console.error('Geocoding error, falling back to mock data:', error);
+      console.error('Geocoding error:', error);
+      return null;
     }
-
-    console.log('Using mock geocoding for:', location);
-    await new Promise(resolve => setTimeout(resolve, 500));
-    
-    const mockLocations = {
-      '77014': { lat: 29.9803, lng: -95.4431, address: 'North Houston, TX 77014' },
-      '77058': { lat: 29.5527, lng: -95.0927, address: 'Houston Clear Lake, TX 77058' },
-      '76116': { lat: 32.6722, lng: -97.4078, address: 'Fort Worth, TX 76116' },
-      '76109': { lat: 32.6732, lng: -97.4606, address: 'Benbrook, TX 76109' },
-      '75232': { lat: 32.6668, lng: -96.8364, address: 'Dallas Oak Cliff, TX 75232' },
-      '75007': { lat: 32.9537, lng: -96.8903, address: 'Carrollton, TX 75007' },
-      'houston': { lat: 29.7604, lng: -95.3698, address: 'Houston, TX' },
-      'dallas': { lat: 32.7767, lng: -96.7970, address: 'Dallas, TX' },
-      'fort worth': { lat: 32.7555, lng: -97.3308, address: 'Fort Worth, TX' },
-      'austin': { lat: 30.2672, lng: -97.7431, address: 'Austin, TX' },
-      'san antonio': { lat: 29.4241, lng: -98.4936, address: 'San Antonio, TX' },
-      'carrollton': { lat: 32.9537, lng: -96.8903, address: 'Carrollton, TX' },
-      'benbrook': { lat: 32.6732, lng: -97.4606, address: 'Benbrook, TX' }
-    };
-
-    const normalizedLocation = location.toLowerCase().trim();
-    const coords = mockLocations[normalizedLocation];
-    
-    console.log('Mock geocoding for:', location, '->', coords);
-    
-    return coords || null;
   };
 
   // Toast function (simplified)
@@ -335,6 +319,8 @@ document.head.appendChild(style);
             } catch (markerError) {
               console.error('Error creating marker for office:', office.name, markerError);
             }
+          } else {
+            console.warn('Could not geocode office address:', fullAddress);
           }
         }
 
@@ -554,7 +540,7 @@ document.head.appendChild(style);
         console.log('Geocoded coordinates:', coordinates);
         
         if (!coordinates) {
-          toast.error('Location not found. Please try a different address or ZIP code.');
+          toast.error('Location not found. Please check if Google Maps is available and try a different address or ZIP code.');
           setFilteredOffices([]);
           return;
         }
@@ -602,7 +588,7 @@ document.head.appendChild(style);
         }
       } catch (error) {
         console.error('Search error:', error);
-        toast.error('An error occurred while searching. Please try again.');
+        toast.error('An error occurred while searching. Please ensure Google Maps is loaded and try again.');
         setFilteredOffices([]);
       } finally {
         setIsLoading(false);
@@ -861,5 +847,4 @@ document.head.appendChild(style);
     window.initOfficeLocator('office-locator-widget');
   }
 
-})();
 })();
