@@ -51,6 +51,7 @@ const OfficeLocator = () => {
       mapTypeControl: false,
       streetViewControl: false,
       fullscreenControl: false,
+      zoomControl: true, // Enable zoom controls
       styles: [
         {
           featureType: 'poi',
